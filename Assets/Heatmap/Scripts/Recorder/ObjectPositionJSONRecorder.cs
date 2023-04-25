@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Heatmap.Recorder
 {
     using Events;
-    public class ObjectPositionRecorder : AbstractJSONRecorder
+    public sealed class ObjectPositionJSONRecorder : AbstractJSONRecorder
     {
         [SerializeField] private Transform @object;
         [SerializeField] private Vector3 offset;

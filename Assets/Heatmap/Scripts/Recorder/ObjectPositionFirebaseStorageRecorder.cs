@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Heatmap.Recorder
 {
-    public class ObjectPositionGoogleStorageRecorder : AbstractGoogleStorageRecorder
+    public class ObjectPositionFirebaseStorageRecorder : AbstractFirebaseStorageRecorder
     {
         [SerializeField] private Transform _object;
         [SerializeField] private Vector3 _offset;

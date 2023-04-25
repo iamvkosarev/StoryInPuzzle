@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "336385811336",
+    "project_id": "storyinpuzzle",
+    "storage_bucket": "storyinpuzzle.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:336385811336:android:007ca49b8df8b61eecd03d",
+        "android_client_info": {
+          "package_name": "com.KosarevGames.StoryInPuzzle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "336385811336-oh35vs3i7hk6njcqvutn5tq3o55v7999.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABpO6KxRXK5pVMeFVCSeLvqb6a8ndrhkY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "336385811336-oh35vs3i7hk6njcqvutn5tq3o55v7999.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

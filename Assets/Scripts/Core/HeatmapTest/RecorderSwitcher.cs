@@ -9,13 +9,16 @@ namespace Core.HeatmapTest
         [SerializeField] private AbstractRecorder abstractRecorder;
         [SerializeField] private KeyCode switchKey;
         [SerializeField] private bool isRecording;
-        
+
         private void Update()
         {
             if (Input.GetKeyDown(switchKey))
             {
                 isRecording = !isRecording;
-                abstractRecorder.IsRecording = isRecording;
+                if (isRecording)
+                    abstractRecorder.StartRecorde();
+                else
+                    abstractRecorder.StopRecorde();
             }
         }
     }

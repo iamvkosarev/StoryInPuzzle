@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Heatmap.Controller
 {
-    [Serializable]
+    [Serializable, CreateAssetMenu(menuName = "Heatmap/Settings/JSON", fileName = "JSON Settings")]
     public class JSONSettings : Settings
     {
         [SerializeField] private string filePath;

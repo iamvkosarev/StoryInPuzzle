@@ -6,18 +6,20 @@ using Debug = UnityEngine.Debug;
 
 namespace Heatmap.Controller
 {
-    using  Visualisation;
-    using  Events;
+    using Visualisation;
+    using Events;
+
     public abstract class BaseHeatmapController : MonoBehaviour
     {
         [SerializeField] private BoxCollider particleSystemBox;
         [SerializeField] private List<EventsContainer> eventsContainersList;
-        
-        public virtual Settings Settings { get; }
-        private HeatmapVisualisation heatmapVisualisation;
-        private bool particleSystemIsInitialized = false;
 
-        private HeatmapVisualisation HeatmapVisualisation => heatmapVisualisation ??= new HeatmapVisualisation(Settings);
+        protected virtual Settings Settings { get; }
+        private HeatmapVisualisation heatmapVisualisation;
+        private bool particleSystemIsInitialized;
+
+        private HeatmapVisualisation HeatmapVisualisation =>
+            heatmapVisualisation ??= new HeatmapVisualisation(Settings);
 
         private List<EventsContainer> EventsContainersList
         {
@@ -28,12 +30,13 @@ namespace Heatmap.Controller
 
         [Button]
         public abstract void LoadEvents();
+
         protected void SetEvents(List<EventsContainer> readEvents)
         {
             EventsContainersList = readEvents;
         }
 
-        [Button,DisableIf("IsParticlesInitialize"), HorizontalGroup("Initialize")]
+        [Button, DisableIf("IsParticlesInitialize"), HorizontalGroup("Initialize")]
         public void InitializeParticlesSystem()
         {
             Stopwatch stopwatch = new();
@@ -45,7 +48,8 @@ namespace Heatmap.Controller
             stopwatch.Stop();
             Debug.Log("Создание сетки из частиц - скорость работы " + stopwatch.ElapsedMilliseconds + " мс");
         }
-        [Button,DisableIf("IsNotParticlesInitialize"), HorizontalGroup("Initialize")]
+
+        [Button, DisableIf("IsNotParticlesInitialize"), HorizontalGroup("Initialize")]
         public void DestroyParticlesSystem()
         {
             HeatmapVisualisation.DestroyParticleSystem();
@@ -55,6 +59,7 @@ namespace Heatmap.Controller
 
         private bool IsNotParticlesInitialize => !particleSystemIsInitialized;
         private bool IsParticlesInitialize => particleSystemIsInitialized;
+
         [Button, DisableIf("IsNotParticlesInitialize")]
         public void ShowSelectedEvents()
         {
@@ -73,7 +78,6 @@ namespace Heatmap.Controller
             HeatmapVisualisation.UpdateParticlesInParticleSystem();
             stopwatch.Stop();
             Debug.Log("Отображение тепловой карты - скорость работы " + stopwatch.ElapsedMilliseconds + " мс");
-
         }
 
         [Button, DisableIf("IsNotParticlesInitialize")]

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Heatmap.Readers
@@ -18,7 +19,7 @@ namespace Heatmap.Readers
                 Debug.LogError("Invalid path, no file found: " + path);
             }
         }
-        public List<EventsContainer> ReadEvents()
+        public async Task<List<EventsContainer>> ReadEvents()
         {
             Dictionary<string, EventsContainer> containersDict = new();
 

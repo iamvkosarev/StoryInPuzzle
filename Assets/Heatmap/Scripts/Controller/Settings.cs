@@ -1,16 +1,15 @@
 using System;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Heatmap.Controller
 {
-    [Serializable]
-    public class Settings
+    [Serializable, CreateAssetMenu(menuName = "Heatmap/Settings/Base", fileName = "Settings")]
+    public class Settings : ScriptableObject
     {
-        [SerializeField,DisableIf("IsParticlesInitialize")] private Material particleMaterial;
-        [SerializeField,DisableIf("IsParticlesInitialize")] private int maxParticleNumber = 30000;
-        [SerializeField,DisableIf("IsParticlesInitialize"), MinValue(0.05f)] private float particleDistance = 0.2f;
-        [SerializeField,DisableIf("IsParticlesInitialize")] private float particleSize = 2.5f;
+        [SerializeField] private Material particleMaterial;
+        [SerializeField] private int maxParticleNumber = 30000;
+        [SerializeField, Min(0.05f)] private float particleDistance = 0.2f;
+        [SerializeField] private float particleSize = 2.5f;
         [SerializeField] private float startValueToShowColor = 0.05f;
         [SerializeField] private float coloringRadius= 1.2f;
         [SerializeField] private float colorMultiplier = 0.4f;

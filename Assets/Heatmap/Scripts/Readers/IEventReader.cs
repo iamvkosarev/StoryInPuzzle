@@ -1,10 +1,11 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Heatmap.Readers
 {
     using Events;
-    internal interface IEventReader
+    public interface IEventReader
     {
-        List<EventsContainer> ReadEvents();
+        Task<List<EventsContainer>> ReadEvents();
     }
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6402074078250038699}
   - component: {fileID: 6402074078250038698}
   - component: {fileID: 6402074078250038709}
-  - component: {fileID: 6402074078250038710}
+  - component: {fileID: 6402074077407845003}
   m_Layer: 0
   m_Name: JSONHeatmapController
   m_TagString: Untagged
@@ -48,314 +48,338 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particleSystemBox: {fileID: 6402074078250038709}
   eventsContainersList:
-  - Positions:
-    - Position: {x: 0.24771214, y: 0.4000001, z: 0.41114303}
-      Multiplier: 1
-    - Position: {x: 0.5504112, y: 0.4000001, z: 0.9291493}
-      Multiplier: 1
-    - Position: {x: 0.7681041, y: 0.4000001, z: 1.4852203}
-      Multiplier: 1
-    - Position: {x: 0.60254663, y: 0.4000001, z: 2.031887}
-      Multiplier: 1
-    - Position: {x: 0.13845825, y: -0.100000024, z: 2.4121444}
-      Multiplier: 1
-    - Position: {x: -0.32283407, y: 0.4000001, z: 2.7957969}
-      Multiplier: 1
-    - Position: {x: -0.8555446, y: 0.4000001, z: 3.2801032}
-      Multiplier: 1
-    - Position: {x: -1.7367301, y: 0.4000001, z: 4.094665}
-      Multiplier: 1
-    - Position: {x: -2.7041016, y: 0.4000001, z: 4.992747}
-      Multiplier: 1
-    - Position: {x: -3.5039358, y: 0.4000001, z: 5.88575}
-      Multiplier: 1
-    - Position: {x: -4.201001, y: 0.39999998, z: 6.8617334}
-      Multiplier: 1
-    - Position: {x: -4.7837324, y: 0.39999998, z: 7.841528}
-      Multiplier: 1
-    - Position: {x: -4.844817, y: 0.39999998, z: 7.9448166}
-      Multiplier: 1
-    - Position: {x: -4.844817, y: 0.39999998, z: 7.9448166}
-      Multiplier: 1
-    - Position: {x: -4.844817, y: 0.39999998, z: 7.9448166}
-      Multiplier: 1
-    - Position: {x: -4.844817, y: 0.39999998, z: 7.9448166}
-      Multiplier: 1
-    - Position: {x: -4.844817, y: 0.39999998, z: 7.9448166}
-      Multiplier: 1
-    - Position: {x: -4.844817, y: 0.39999998, z: 7.9448166}
-      Multiplier: 1
-    - Position: {x: -4.844817, y: 0.39999998, z: 7.9448166}
-      Multiplier: 1
-    - Position: {x: -4.8742743, y: 0.4000001, z: 8.181829}
-      Multiplier: 1
-    - Position: {x: -4.7052336, y: 0.4000001, z: 8.7557125}
-      Multiplier: 1
-    - Position: {x: -3.876027, y: 0.39999998, z: 9.50109}
-      Multiplier: 1
-    - Position: {x: -2.763795, y: 0.39999998, z: 9.951587}
-      Multiplier: 1
-    - Position: {x: -1.6515675, y: 0.39999998, z: 10.402083}
-      Multiplier: 1
-    - Position: {x: -0.55533695, y: 0.39999998, z: 10.78061}
-      Multiplier: 1
-    - Position: {x: -0.5069461, y: 0.39999998, z: 10.767057}
-      Multiplier: 1
-    - Position: {x: -0.5069461, y: 0.39999998, z: 10.767057}
-      Multiplier: 1
-    - Position: {x: -0.5069461, y: 0.39999998, z: 10.767057}
-      Multiplier: 1
-    - Position: {x: -0.5069461, y: 0.39999998, z: 10.767057}
-      Multiplier: 1
-    - Position: {x: -0.5069461, y: 0.39999998, z: 10.767057}
-      Multiplier: 1
-    - Position: {x: -0.5069461, y: 0.39999998, z: 10.767057}
-      Multiplier: 1
-    - Position: {x: 0.39728191, y: 0.4000001, z: 10.449011}
-      Multiplier: 1
-    - Position: {x: 1.3444948, y: 0.4000001, z: 9.712284}
-      Multiplier: 1
-    - Position: {x: 2.1157985, y: 0.4000001, z: 8.833403}
-      Multiplier: 1
-    - Position: {x: 1.7071128, y: 0.4000001, z: 7.7291384}
-      Multiplier: 1
-    - Position: {x: 0.79459125, y: 0.39999998, z: 6.9595823}
-      Multiplier: 1
-    - Position: {x: 0.5360776, y: 0.4000001, z: 5.7437477}
-      Multiplier: 1
-    - Position: {x: 1.2008263, y: 0.4000001, z: 4.777643}
-      Multiplier: 1
-    - Position: {x: 2.2273886, y: 0.4000001, z: 4.4641657}
-      Multiplier: 1
-    - Position: {x: 2.405808, y: 0.4000001, z: 5.3758416}
-      Multiplier: 1
-    - Position: {x: 1.593641, y: 0.39999998, z: 5.5038505}
-      Multiplier: 1
-    - Position: {x: 0.3936796, y: 0.39999998, z: 5.5132775}
-      Multiplier: 1
-    - Position: {x: -0.8062811, y: 0.39999998, z: 5.5227046}
-      Multiplier: 1
-    - Position: {x: -1.9704294, y: 0.4000001, z: 5.6167054}
-      Multiplier: 1
-    - Position: {x: -2.7289143, y: 0.4000001, z: 6.5396824}
-      Multiplier: 1
-    - Position: {x: -2.9220438, y: 0.4000001, z: 7.352998}
-      Multiplier: 1
-    - Position: {x: -2.163504, y: 0.4000001, z: 7.978124}
-      Multiplier: 1
-    - Position: {x: -1.5840437, y: 0.4000001, z: 7.000488}
-      Multiplier: 1
-    - Position: {x: -1.9283867, y: 0.4000001, z: 5.8899317}
-      Multiplier: 1
-    - Position: {x: -2.7637913, y: 0.39999998, z: 5.0292263}
-      Multiplier: 1
-    - Position: {x: -3.3476145, y: 0.4000001, z: 4.014034}
-      Multiplier: 1
-    - Position: {x: -3.3151133, y: 0.4000001, z: 3.354856}
-      Multiplier: 1
-    - Position: {x: -3.242904, y: 0.4000001, z: 2.1570501}
-      Multiplier: 1
-    - Position: {x: -2.8394358, y: 0.4000001, z: 1.044912}
-      Multiplier: 1
-    - Position: {x: -1.8356555, y: 0.4000001, z: 0.44940838}
-      Multiplier: 1
-    - Position: {x: -0.64478064, y: 0.39999998, z: 0.3116166}
-      Multiplier: 1
-    - Position: {x: 0.5537352, y: 0.39999998, z: 0.25195235}
-      Multiplier: 1
-    - Position: {x: 1.7526926, y: 0.4000001, z: 0.20264536}
-      Multiplier: 1
-    - Position: {x: 2.9519975, y: 0.4000001, z: 0.1618138}
-      Multiplier: 1
-    - Position: {x: 4.1513023, y: 0.4000001, z: 0.12098223}
-      Multiplier: 1
-    - Position: {x: 5.3507013, y: 0.4000001, z: 0.08360487}
-      Multiplier: 1
-    - Position: {x: 6.543747, y: 0.5189799, z: 0.14857188}
-      Multiplier: 1
-    - Position: {x: 7.1318755, y: 0.87579155, z: 0.66920143}
-      Multiplier: 1
-    - Position: {x: 7.468136, y: 1.0758669, z: 1.6219206}
-      Multiplier: 1
-    - Position: {x: 8.038732, y: 1.4144748, z: 2.2445333}
-      Multiplier: 1
-    - Position: {x: 8.221011, y: 1.5316051, z: 3.2859695}
-      Multiplier: 1
-    - Position: {x: 8.299281, y: 1.576274, z: 4.428702}
-      Multiplier: 1
-    - Position: {x: 8.6016, y: 1.62, z: 5.575719}
-      Multiplier: 1
-    - Position: {x: 8.721811, y: 1.6199998, z: 5.710495}
-      Multiplier: 1
-    - Position: {x: 8.721811, y: 1.62, z: 5.710495}
-      Multiplier: 1
-    - Position: {x: 8.721811, y: 1.6199998, z: 5.710495}
-      Multiplier: 1
-    - Position: {x: 8.721811, y: 1.6199998, z: 5.710495}
-      Multiplier: 1
-    - Position: {x: 8.721811, y: 1.6199998, z: 5.710495}
-      Multiplier: 1
-    - Position: {x: 8.864998, y: 1.6199998, z: 5.7232456}
-      Multiplier: 1
-    - Position: {x: 9.952922, y: 1.6199998, z: 5.701824}
-      Multiplier: 1
-    - Position: {x: 11.149561, y: 1.62, z: 5.6155243}
-      Multiplier: 1
-    - Position: {x: 12.3448105, y: 1.62, z: 5.508856}
-      Multiplier: 1
-    - Position: {x: 13.659497, y: 1.6199998, z: 5.390582}
-      Multiplier: 1
-    - Position: {x: 14.182658, y: 1.62, z: 4.524572}
-      Multiplier: 1
-    - Position: {x: 13.650772, y: 1.6199998, z: 3.4596095}
-      Multiplier: 1
-    - Position: {x: 12.636266, y: 1.62, z: 2.8413296}
-      Multiplier: 1
-    - Position: {x: 11.94201, y: 1.62, z: 1.9720979}
-      Multiplier: 1
-    - Position: {x: 11.514897, y: 1.62, z: 0.8506795}
-      Multiplier: 1
-    - Position: {x: 10.927014, y: 1.62, z: -0.18036857}
-      Multiplier: 1
-    - Position: {x: 9.886686, y: 1.62, z: -0.75735795}
-      Multiplier: 1
-    - Position: {x: 9.258982, y: 1.6199998, z: -1.4860057}
-      Multiplier: 1
-    - Position: {x: 9.6741705, y: 1.6199998, z: -0.84096885}
-      Multiplier: 1
-    - Position: {x: 8.775628, y: 1.62, z: -0.056772195}
-      Multiplier: 1
-    - Position: {x: 8.281098, y: 1.5614842, z: 0.7687558}
-      Multiplier: 1
-    - Position: {x: 9.375601, y: 1.62, z: 1.2135963}
-      Multiplier: 1
-    - Position: {x: 10.531662, y: 1.6199998, z: 1.5321289}
-      Multiplier: 1
-    - Position: {x: 11.699236, y: 1.6199998, z: 1.8092047}
-      Multiplier: 1
-    - Position: {x: 12.86681, y: 1.6199998, z: 2.0862806}
-      Multiplier: 1
-    - Position: {x: 14.03823, y: 1.6199998, z: 2.346512}
-      Multiplier: 1
-    - Position: {x: 15.211078, y: 1.62, z: 2.6003027}
-      Multiplier: 1
-    - Position: {x: 16.405571, y: 1.62, z: 2.680451}
-      Multiplier: 1
-    - Position: {x: 17.605408, y: 1.62, z: 2.6609702}
-      Multiplier: 1
-    - Position: {x: 18.80515, y: 1.62, z: 2.6358361}
-      Multiplier: 1
-    - Position: {x: 20.124905, y: 1.62, z: 2.6103866}
-      Multiplier: 1
-    - Position: {x: 20.717548, y: 1.6199998, z: 2.5883925}
-      Multiplier: 1
-    - Position: {x: 20.687561, y: 1.6199998, z: 2.5937243}
-      Multiplier: 1
-    - Position: {x: 20.197159, y: 1.6199998, z: 3.4133353}
-      Multiplier: 1
-    - Position: {x: 19.52735, y: 1.62, z: 4.409001}
-      Multiplier: 1
-    - Position: {x: 18.840181, y: 1.62, z: 5.392764}
-      Multiplier: 1
-    - Position: {x: 18.146223, y: 1.6199998, z: 5.7344904}
-      Multiplier: 1
-    - Position: {x: 17.096601, y: 1.6199998, z: 5.7169213}
-      Multiplier: 1
-    - Position: {x: 15.977458, y: 1.62, z: 5.4098864}
-      Multiplier: 1
-    - Position: {x: 15.08485, y: 1.62, z: 4.607869}
-      Multiplier: 1
-    - Position: {x: 13.949353, y: 1.62, z: 4.519773}
-      Multiplier: 1
-    - Position: {x: 12.758255, y: 1.62, z: 4.665498}
-      Multiplier: 1
-    - Position: {x: 11.571448, y: 1.62, z: 4.841709}
-      Multiplier: 1
-    - Position: {x: 10.393301, y: 1.62, z: 5.0689993}
-      Multiplier: 1
-    - Position: {x: 9.218724, y: 1.6199998, z: 4.890725}
-      Multiplier: 1
-    - Position: {x: 8.075743, y: 1.4635938, z: 5.0653143}
-      Multiplier: 1
-    - Position: {x: 6.93361, y: 0.7802564, z: 5.4031267}
-      Multiplier: 1
-    - Position: {x: 5.6710105, y: 0.39999998, z: 5.772972}
-      Multiplier: 1
-    - Position: {x: 4.4765024, y: 0.39999998, z: 5.856572}
-      Multiplier: 1
-    - Position: {x: 3.3441403, y: 0.4000001, z: 5.984428}
-      Multiplier: 1
-    - Position: {x: 2.8243933, y: 0.39999998, z: 6.6861124}
-      Multiplier: 1
-    - Position: {x: 3.6551569, y: 0.4000001, z: 7.3236814}
-      Multiplier: 1
-    - Position: {x: 4.720913, y: 0.4000001, z: 7.8751726}
-      Multiplier: 1
-    - Position: {x: 5.950449, y: 0.4000001, z: 8.350506}
-      Multiplier: 1
-    - Position: {x: 7.115284, y: 0.4000001, z: 8.63823}
-      Multiplier: 1
-    - Position: {x: 8.296215, y: 0.4000001, z: 8.82909}
-      Multiplier: 1
-    - Position: {x: 9.465934, y: 0.39999998, z: 8.577166}
-      Multiplier: 1
-    - Position: {x: 9.264728, y: 0.39999998, z: 8.820943}
-      Multiplier: 1
-    - Position: {x: 8.519422, y: 0.4000001, z: 7.8963156}
-      Multiplier: 1
-    - Position: {x: 7.903167, y: 0.4000001, z: 6.866638}
-      Multiplier: 1
-    - Position: {x: 7.067683, y: 0.40031946, z: 6.713565}
-      Multiplier: 1
-    - Position: {x: 5.8992233, y: 0.39999998, z: 6.5767674}
-      Multiplier: 1
-    - Position: {x: 4.7874923, y: 0.39999998, z: 6.1512904}
-      Multiplier: 1
-    - Position: {x: 4.133235, y: 0.39999998, z: 5.535724}
-      Multiplier: 1
-    - Position: {x: 3.669812, y: 0.39999998, z: 5.1608014}
-      Multiplier: 1
-    EventName: PlayerPosition
-    IsCurrentlyDisplayedOnHeatmap: 1
-  settings:
-    particleMaterial: {fileID: 2100000, guid: c355a378bff033046a7f45170ec40d78, type: 2}
-    maxParticleNumber: 20000
-    particleDistance: 0.2
-    particleSize: 2.5
-    startValueToShowColor: 0.05
-    coloringRadius: 1.2
-    colorMultiplier: 0.4
-    showColoringInYAxis: 1
-    gradient:
-      serializedVersion: 2
-      key0: {r: 0.390566, g: 0.7225999, b: 1, a: 0}
-      key1: {r: 1, g: 0.9926985, b: 0.07058823, a: 0.105882354}
-      key2: {r: 1, g: 0.2584905, b: 0.2584905, a: 0.8980392}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 9059
-      ctime1: 31611
-      ctime2: 65535
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 16962
-      atime2: 65535
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 3
-      m_NumAlphaKeys: 3
-    filePath: Assets/Heatmap/DataTesting/test_1.json
+  - positions:
+    - position: {x: 0.24771214, y: 0.4000001, z: 0.41114303}
+      multiplier: 1
+    - position: {x: 0.5504112, y: 0.4000001, z: 0.9291493}
+      multiplier: 1
+    - position: {x: 0.7681041, y: 0.4000001, z: 1.4852203}
+      multiplier: 1
+    - position: {x: 0.60254663, y: 0.4000001, z: 2.031887}
+      multiplier: 1
+    - position: {x: 0.13845825, y: -0.100000024, z: 2.4121444}
+      multiplier: 1
+    - position: {x: -0.32283407, y: 0.4000001, z: 2.7957969}
+      multiplier: 1
+    - position: {x: -0.8555446, y: 0.4000001, z: 3.2801032}
+      multiplier: 1
+    - position: {x: -1.7367301, y: 0.4000001, z: 4.094665}
+      multiplier: 1
+    - position: {x: -2.7041016, y: 0.4000001, z: 4.992747}
+      multiplier: 1
+    - position: {x: -3.5039358, y: 0.4000001, z: 5.88575}
+      multiplier: 1
+    - position: {x: -4.201001, y: 0.39999998, z: 6.8617334}
+      multiplier: 1
+    - position: {x: -4.7837324, y: 0.39999998, z: 7.841528}
+      multiplier: 1
+    - position: {x: -4.844817, y: 0.39999998, z: 7.9448166}
+      multiplier: 1
+    - position: {x: -4.844817, y: 0.39999998, z: 7.9448166}
+      multiplier: 1
+    - position: {x: -4.844817, y: 0.39999998, z: 7.9448166}
+      multiplier: 1
+    - position: {x: -4.844817, y: 0.39999998, z: 7.9448166}
+      multiplier: 1
+    - position: {x: -4.844817, y: 0.39999998, z: 7.9448166}
+      multiplier: 1
+    - position: {x: -4.844817, y: 0.39999998, z: 7.9448166}
+      multiplier: 1
+    - position: {x: -4.844817, y: 0.39999998, z: 7.9448166}
+      multiplier: 1
+    - position: {x: -4.8742743, y: 0.4000001, z: 8.181829}
+      multiplier: 1
+    - position: {x: -4.7052336, y: 0.4000001, z: 8.7557125}
+      multiplier: 1
+    - position: {x: -3.876027, y: 0.39999998, z: 9.50109}
+      multiplier: 1
+    - position: {x: -2.763795, y: 0.39999998, z: 9.951587}
+      multiplier: 1
+    - position: {x: -1.6515675, y: 0.39999998, z: 10.402083}
+      multiplier: 1
+    - position: {x: -0.55533695, y: 0.39999998, z: 10.78061}
+      multiplier: 1
+    - position: {x: -0.5069461, y: 0.39999998, z: 10.767057}
+      multiplier: 1
+    - position: {x: -0.5069461, y: 0.39999998, z: 10.767057}
+      multiplier: 1
+    - position: {x: -0.5069461, y: 0.39999998, z: 10.767057}
+      multiplier: 1
+    - position: {x: -0.5069461, y: 0.39999998, z: 10.767057}
+      multiplier: 1
+    - position: {x: -0.5069461, y: 0.39999998, z: 10.767057}
+      multiplier: 1
+    - position: {x: -0.5069461, y: 0.39999998, z: 10.767057}
+      multiplier: 1
+    - position: {x: 0.39728191, y: 0.4000001, z: 10.449011}
+      multiplier: 1
+    - position: {x: 1.3444948, y: 0.4000001, z: 9.712284}
+      multiplier: 1
+    - position: {x: 2.1157985, y: 0.4000001, z: 8.833403}
+      multiplier: 1
+    - position: {x: 1.7071128, y: 0.4000001, z: 7.7291384}
+      multiplier: 1
+    - position: {x: 0.79459125, y: 0.39999998, z: 6.9595823}
+      multiplier: 1
+    - position: {x: 0.5360776, y: 0.4000001, z: 5.7437477}
+      multiplier: 1
+    - position: {x: 1.2008263, y: 0.4000001, z: 4.777643}
+      multiplier: 1
+    - position: {x: 2.2273886, y: 0.4000001, z: 4.4641657}
+      multiplier: 1
+    - position: {x: 2.405808, y: 0.4000001, z: 5.3758416}
+      multiplier: 1
+    - position: {x: 1.593641, y: 0.39999998, z: 5.5038505}
+      multiplier: 1
+    - position: {x: 0.3936796, y: 0.39999998, z: 5.5132775}
+      multiplier: 1
+    - position: {x: -0.8062811, y: 0.39999998, z: 5.5227046}
+      multiplier: 1
+    - position: {x: -1.9704294, y: 0.4000001, z: 5.6167054}
+      multiplier: 1
+    - position: {x: -2.7289143, y: 0.4000001, z: 6.5396824}
+      multiplier: 1
+    - position: {x: -2.9220438, y: 0.4000001, z: 7.352998}
+      multiplier: 1
+    - position: {x: -2.163504, y: 0.4000001, z: 7.978124}
+      multiplier: 1
+    - position: {x: -1.5840437, y: 0.4000001, z: 7.000488}
+      multiplier: 1
+    - position: {x: -1.9283867, y: 0.4000001, z: 5.8899317}
+      multiplier: 1
+    - position: {x: -2.7637913, y: 0.39999998, z: 5.0292263}
+      multiplier: 1
+    - position: {x: -3.3476145, y: 0.4000001, z: 4.014034}
+      multiplier: 1
+    - position: {x: -3.3151133, y: 0.4000001, z: 3.354856}
+      multiplier: 1
+    - position: {x: -3.242904, y: 0.4000001, z: 2.1570501}
+      multiplier: 1
+    - position: {x: -2.8394358, y: 0.4000001, z: 1.044912}
+      multiplier: 1
+    - position: {x: -1.8356555, y: 0.4000001, z: 0.44940838}
+      multiplier: 1
+    - position: {x: -0.64478064, y: 0.39999998, z: 0.3116166}
+      multiplier: 1
+    - position: {x: 0.5537352, y: 0.39999998, z: 0.25195235}
+      multiplier: 1
+    - position: {x: 1.7526926, y: 0.4000001, z: 0.20264536}
+      multiplier: 1
+    - position: {x: 2.9519975, y: 0.4000001, z: 0.1618138}
+      multiplier: 1
+    - position: {x: 4.1513023, y: 0.4000001, z: 0.12098223}
+      multiplier: 1
+    - position: {x: 5.3507013, y: 0.4000001, z: 0.08360487}
+      multiplier: 1
+    - position: {x: 6.543747, y: 0.5189799, z: 0.14857188}
+      multiplier: 1
+    - position: {x: 7.1318755, y: 0.87579155, z: 0.66920143}
+      multiplier: 1
+    - position: {x: 7.468136, y: 1.0758669, z: 1.6219206}
+      multiplier: 1
+    - position: {x: 8.038732, y: 1.4144748, z: 2.2445333}
+      multiplier: 1
+    - position: {x: 8.221011, y: 1.5316051, z: 3.2859695}
+      multiplier: 1
+    - position: {x: 8.299281, y: 1.576274, z: 4.428702}
+      multiplier: 1
+    - position: {x: 8.6016, y: 1.62, z: 5.575719}
+      multiplier: 1
+    - position: {x: 8.721811, y: 1.6199998, z: 5.710495}
+      multiplier: 1
+    - position: {x: 8.721811, y: 1.62, z: 5.710495}
+      multiplier: 1
+    - position: {x: 8.721811, y: 1.6199998, z: 5.710495}
+      multiplier: 1
+    - position: {x: 8.721811, y: 1.6199998, z: 5.710495}
+      multiplier: 1
+    - position: {x: 8.721811, y: 1.6199998, z: 5.710495}
+      multiplier: 1
+    - position: {x: 8.864998, y: 1.6199998, z: 5.7232456}
+      multiplier: 1
+    - position: {x: 9.952922, y: 1.6199998, z: 5.701824}
+      multiplier: 1
+    - position: {x: 11.149561, y: 1.62, z: 5.6155243}
+      multiplier: 1
+    - position: {x: 12.3448105, y: 1.62, z: 5.508856}
+      multiplier: 1
+    - position: {x: 13.659497, y: 1.6199998, z: 5.390582}
+      multiplier: 1
+    - position: {x: 14.182658, y: 1.62, z: 4.524572}
+      multiplier: 1
+    - position: {x: 13.650772, y: 1.6199998, z: 3.4596095}
+      multiplier: 1
+    - position: {x: 12.636266, y: 1.62, z: 2.8413296}
+      multiplier: 1
+    - position: {x: 11.94201, y: 1.62, z: 1.9720979}
+      multiplier: 1
+    - position: {x: 11.514897, y: 1.62, z: 0.8506795}
+      multiplier: 1
+    - position: {x: 10.927014, y: 1.62, z: -0.18036857}
+      multiplier: 1
+    - position: {x: 9.886686, y: 1.62, z: -0.75735795}
+      multiplier: 1
+    - position: {x: 9.258982, y: 1.6199998, z: -1.4860057}
+      multiplier: 1
+    - position: {x: 9.6741705, y: 1.6199998, z: -0.84096885}
+      multiplier: 1
+    - position: {x: 8.775628, y: 1.62, z: -0.056772195}
+      multiplier: 1
+    - position: {x: 8.281098, y: 1.5614842, z: 0.7687558}
+      multiplier: 1
+    - position: {x: 9.375601, y: 1.62, z: 1.2135963}
+      multiplier: 1
+    - position: {x: 10.531662, y: 1.6199998, z: 1.5321289}
+      multiplier: 1
+    - position: {x: 11.699236, y: 1.6199998, z: 1.8092047}
+      multiplier: 1
+    - position: {x: 12.86681, y: 1.6199998, z: 2.0862806}
+      multiplier: 1
+    - position: {x: 14.03823, y: 1.6199998, z: 2.346512}
+      multiplier: 1
+    - position: {x: 15.211078, y: 1.62, z: 2.6003027}
+      multiplier: 1
+    - position: {x: 16.405571, y: 1.62, z: 2.680451}
+      multiplier: 1
+    - position: {x: 17.605408, y: 1.62, z: 2.6609702}
+      multiplier: 1
+    - position: {x: 18.80515, y: 1.62, z: 2.6358361}
+      multiplier: 1
+    - position: {x: 20.124905, y: 1.62, z: 2.6103866}
+      multiplier: 1
+    - position: {x: 20.717548, y: 1.6199998, z: 2.5883925}
+      multiplier: 1
+    - position: {x: 20.687561, y: 1.6199998, z: 2.5937243}
+      multiplier: 1
+    - position: {x: 20.197159, y: 1.6199998, z: 3.4133353}
+      multiplier: 1
+    - position: {x: 19.52735, y: 1.62, z: 4.409001}
+      multiplier: 1
+    - position: {x: 18.840181, y: 1.62, z: 5.392764}
+      multiplier: 1
+    - position: {x: 18.146223, y: 1.6199998, z: 5.7344904}
+      multiplier: 1
+    - position: {x: 17.096601, y: 1.6199998, z: 5.7169213}
+      multiplier: 1
+    - position: {x: 15.977458, y: 1.62, z: 5.4098864}
+      multiplier: 1
+    - position: {x: 15.08485, y: 1.62, z: 4.607869}
+      multiplier: 1
+    - position: {x: 13.949353, y: 1.62, z: 4.519773}
+      multiplier: 1
+    - position: {x: 12.758255, y: 1.62, z: 4.665498}
+      multiplier: 1
+    - position: {x: 11.571448, y: 1.62, z: 4.841709}
+      multiplier: 1
+    - position: {x: 10.393301, y: 1.62, z: 5.0689993}
+      multiplier: 1
+    - position: {x: 9.218724, y: 1.6199998, z: 4.890725}
+      multiplier: 1
+    - position: {x: 8.075743, y: 1.4635938, z: 5.0653143}
+      multiplier: 1
+    - position: {x: 6.93361, y: 0.7802564, z: 5.4031267}
+      multiplier: 1
+    - position: {x: 5.6710105, y: 0.39999998, z: 5.772972}
+      multiplier: 1
+    - position: {x: 4.4765024, y: 0.39999998, z: 5.856572}
+      multiplier: 1
+    - position: {x: 3.3441403, y: 0.4000001, z: 5.984428}
+      multiplier: 1
+    - position: {x: 2.8243933, y: 0.39999998, z: 6.6861124}
+      multiplier: 1
+    - position: {x: 3.6551569, y: 0.4000001, z: 7.3236814}
+      multiplier: 1
+    - position: {x: 4.720913, y: 0.4000001, z: 7.8751726}
+      multiplier: 1
+    - position: {x: 5.950449, y: 0.4000001, z: 8.350506}
+      multiplier: 1
+    - position: {x: 7.115284, y: 0.4000001, z: 8.63823}
+      multiplier: 1
+    - position: {x: 8.296215, y: 0.4000001, z: 8.82909}
+      multiplier: 1
+    - position: {x: 9.465934, y: 0.39999998, z: 8.577166}
+      multiplier: 1
+    - position: {x: 9.264728, y: 0.39999998, z: 8.820943}
+      multiplier: 1
+    - position: {x: 8.519422, y: 0.4000001, z: 7.8963156}
+      multiplier: 1
+    - position: {x: 7.903167, y: 0.4000001, z: 6.866638}
+      multiplier: 1
+    - position: {x: 7.067683, y: 0.40031946, z: 6.713565}
+      multiplier: 1
+    - position: {x: 5.8992233, y: 0.39999998, z: 6.5767674}
+      multiplier: 1
+    - position: {x: 4.7874923, y: 0.39999998, z: 6.1512904}
+      multiplier: 1
+    - position: {x: 4.133235, y: 0.39999998, z: 5.535724}
+      multiplier: 1
+    - position: {x: 3.669812, y: 0.39999998, z: 5.1608014}
+      multiplier: 1
+    - position: {x: 10.732787, y: 1.8199998, z: 0.79766726}
+      multiplier: 1
+    - position: {x: 11.327861, y: 1.8199998, z: 0.720909}
+      multiplier: 1
+    - position: {x: 11.923088, y: 1.8199998, z: 0.6453977}
+      multiplier: 1
+    - position: {x: 12.520295, y: 1.8199998, z: 0.6519408}
+      multiplier: 1
+    - position: {x: 13.102705, y: 1.8199998, z: 0.7935257}
+      multiplier: 1
+    - position: {x: 13.305153, y: 1.8199998, z: 1.2580456}
+      multiplier: 1
+    - position: {x: 12.78458, y: 1.8199998, z: 1.1526207}
+      multiplier: 1
+    - position: {x: 12.263932, y: 1.8199998, z: 0.89140964}
+      multiplier: 1
+    - position: {x: 11.692338, y: 1.8199998, z: 0.7089902}
+      multiplier: 1
+    - position: {x: 11.106089, y: 1.8199998, z: 0.6131654}
+      multiplier: 1
+    - position: {x: 10.628768, y: 1.8199998, z: 0.9440473}
+      multiplier: 1
+    - position: {x: 10.2128315, y: 1.8199998, z: 1.3733468}
+      multiplier: 1
+    - position: {x: 9.658928, y: 1.8199998, z: 1.6000198}
+      multiplier: 1
+    - position: {x: 9.086466, y: 1.8199998, z: 1.9258487}
+      multiplier: 1
+    - position: {x: 8.985825, y: 1.8199998, z: 1.9912055}
+      multiplier: 1
+    - position: {x: 8.985825, y: 1.8199998, z: 1.9912055}
+      multiplier: 1
+    - position: {x: 8.985825, y: 1.8199998, z: 1.9912055}
+      multiplier: 1
+    - position: {x: 8.985825, y: 1.8199998, z: 1.9912055}
+      multiplier: 1
+    - position: {x: 8.985825, y: 1.8199998, z: 1.9912055}
+      multiplier: 1
+    - position: {x: 8.935504, y: 1.8199998, z: 2.0238838}
+      multiplier: 1
+    - position: {x: 8.431283, y: 1.8199998, z: 2.3490791}
+      multiplier: 1
+    - position: {x: 8.1226225, y: 1.6557575, z: 2.5343575}
+      multiplier: 1
+    - position: {x: 7.610332, y: 1.3487247, z: 2.8466308}
+      multiplier: 1
+    - position: {x: 7.11723, y: 1.0526088, z: 3.188389}
+      multiplier: 1
+    - position: {x: 6.602248, y: 0.741526, z: 3.600358}
+      multiplier: 1
+    - position: {x: 6.226416, y: 0.6, z: 4.066723}
+      multiplier: 1
+    - position: {x: 5.927184, y: 0.6, z: 4.58658}
+      multiplier: 1
+    - position: {x: 5.658076, y: 0.6, z: 5.1226897}
+      multiplier: 1
+    - position: {x: 5.463508, y: 0.6, z: 5.6900153}
+      multiplier: 1
+    - position: {x: 5.317573, y: 0.6, z: 6.1472945}
+      multiplier: 1
+    - position: {x: 5.317573, y: 0.6, z: 6.1472945}
+      multiplier: 1
+    eventName: PlayerPosition
+    isCurrentlyDisplayedOnHeatmap: 1
+  settings: {fileID: 11400000, guid: 86600b3d7cb843c4ea6520e3dc8ad3fd, type: 2}
 --- !u!65 &6402074078250038709
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -369,7 +393,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 33.55, y: 4.0186486, z: 21.95}
   m_Center: {x: 8.718647, y: -0.89818335, z: 1.3812695}
---- !u!199 &6402074078250038710
+--- !u!199 &6402074077407845003
 ParticleSystemRenderer:
   serializedVersion: 6
   m_ObjectHideFlags: 0

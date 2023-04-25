@@ -5,31 +5,28 @@ namespace Heatmap.Recorder
 {
     using Events;
     using Writers;
+
     public abstract class AbstractRecorder : MonoBehaviour
     {
-        [SerializeField] private float recordInterval = 0.5f;
-        [SerializeField] private bool isRecording;
-        [SerializeField] private string eventName;
+        [SerializeField] private float _recordInterval = 0.2f;
+        [SerializeField] private bool _isRecording;
+        [SerializeField] private string _eventName;
 
-        protected string EventName => eventName;
+        protected string EventName => _eventName;
 
-
-        public bool IsRecording
+        public virtual void StartRecorde()
         {
-            get => isRecording;
-            set
-            {
-                if (!value && isRecording)
-                {
-                    StopCoroutine(recording);
-                }
+            recording = StartCoroutine(Recorde());
+            _isRecording = true;
+        }
 
-                isRecording = value;
-                if (value)
-                {
-                    recording = StartCoroutine(Recorde());
-                }
+        public virtual void StopRecorde()
+        {
+            if (_isRecording)
+            {
+                StopCoroutine(recording);
             }
+            _isRecording = false;
         }
 
         private Coroutine recording;
@@ -39,7 +36,7 @@ namespace Heatmap.Recorder
             while (true)
             {
                 RecordAndSaveEvent();
-                yield return new WaitForSeconds(recordInterval);
+                yield return new WaitForSeconds(_recordInterval);
             }
         }
 
