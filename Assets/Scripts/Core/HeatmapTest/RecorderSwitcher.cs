@@ -16,8 +16,8 @@ namespace Core.HeatmapTest
 
         private void Awake()
         {
-            var recordeSettingsContainer = new RecordeSettingContainer("playerMove", 0.2f, GetPlayerPos);
-            recorder = RecorderFactory.Instance.GetJSONRecorder(recordeSettingsContainer, _savePath.FilePath);
+            recorder = RecorderFactory.Instance.GetJSONRecorder(
+                new RecordeSettingContainer("playerMove", 0.2f, GetPlayerPos), _savePath.FilePath);
         }
 
         private Vector3 GetPlayerPos() => _player.transform.position + _offcet;
