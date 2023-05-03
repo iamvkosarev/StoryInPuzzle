@@ -1,11 +1,16 @@
+using System;
 using UnityEngine;
 
 namespace Heatmap.Scripts.Recorder
 {
     public abstract class AbstractFileRecorder : AbstractRecorder
     {
-        [SerializeField] private string _path;
+        protected string SavePath { get; }
 
-        protected string Path => _path;
+        protected AbstractFileRecorder(RecordeSettingContainer recordeSettingContainer, string savePath,
+            ICoroutineRunner coroutineRunner) : base(recordeSettingContainer, coroutineRunner)
+        {
+            SavePath = savePath;
+        }
     }
 }

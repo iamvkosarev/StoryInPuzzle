@@ -49,4 +49,4 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 3
     m_NumAlphaKeys: 3
-  filePath: test_1.json
+  _savePath: {fileID: 11400000, guid: dc4352c17ea3e834e933caf170d230a7, type: 2}

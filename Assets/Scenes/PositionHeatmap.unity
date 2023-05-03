@@ -936,17 +936,6 @@ PrefabInstance:
       objectReference: {fileID: 994838913}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ba124b79387f584ea1009a66324313c, type: 3}
---- !u!114 &956897054 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5740058708632351066, guid: 3789ce2ebc0427f488f012ecb1b39e94, type: 3}
-  m_PrefabInstance: {fileID: 1407726007111157063}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b82415cef131486a88a85f096b9bbfe9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &994838913 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6677093553908254696, guid: 3bea25ffa4158ce4fb774b4127fee37f, type: 3}
@@ -1555,67 +1544,6 @@ Transform:
   m_Father: {fileID: 1328842446}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1407726007111157063
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1407726007531180636, guid: 3789ce2ebc0427f488f012ecb1b39e94, type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1407726007531180636, guid: 3789ce2ebc0427f488f012ecb1b39e94, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1407726007531180636, guid: 3789ce2ebc0427f488f012ecb1b39e94, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1407726007531180636, guid: 3789ce2ebc0427f488f012ecb1b39e94, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1407726007531180636, guid: 3789ce2ebc0427f488f012ecb1b39e94, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1407726007531180636, guid: 3789ce2ebc0427f488f012ecb1b39e94, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1407726007531180636, guid: 3789ce2ebc0427f488f012ecb1b39e94, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1407726007531180636, guid: 3789ce2ebc0427f488f012ecb1b39e94, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1407726007531180636, guid: 3789ce2ebc0427f488f012ecb1b39e94, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1407726007531180636, guid: 3789ce2ebc0427f488f012ecb1b39e94, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1407726007531180636, guid: 3789ce2ebc0427f488f012ecb1b39e94, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1407726007531180637, guid: 3789ce2ebc0427f488f012ecb1b39e94, type: 3}
-      propertyPath: m_Name
-      value: PlayerPositionRecorder
-      objectReference: {fileID: 0}
-    - target: {fileID: 5740058708632351066, guid: 3789ce2ebc0427f488f012ecb1b39e94, type: 3}
-      propertyPath: _object
-      value: 
-      objectReference: {fileID: 994838914}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3789ce2ebc0427f488f012ecb1b39e94, type: 3}
 --- !u!1001 &8126675080286561636
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1625,7 +1553,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8126675080580191928, guid: b7a54d8b67b5c43418b1432a28b0981b, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8126675080580191928, guid: b7a54d8b67b5c43418b1432a28b0981b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1672,8 +1600,20 @@ PrefabInstance:
       value: RecorderSwitcher
       objectReference: {fileID: 0}
     - target: {fileID: 8126675080580191935, guid: b7a54d8b67b5c43418b1432a28b0981b, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 994838914}
+    - target: {fileID: 8126675080580191935, guid: b7a54d8b67b5c43418b1432a28b0981b, type: 3}
+      propertyPath: _offcet.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126675080580191935, guid: b7a54d8b67b5c43418b1432a28b0981b, type: 3}
+      propertyPath: _savePath
+      value: 
+      objectReference: {fileID: 11400000, guid: a30f9d16173085947b42b4725e8ddfa4, type: 2}
+    - target: {fileID: 8126675080580191935, guid: b7a54d8b67b5c43418b1432a28b0981b, type: 3}
       propertyPath: abstractRecorder
       value: 
-      objectReference: {fileID: 956897054}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7a54d8b67b5c43418b1432a28b0981b, type: 3}

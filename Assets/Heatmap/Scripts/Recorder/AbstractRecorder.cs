@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Heatmap.Events;
 using Heatmap.Writers;
@@ -5,17 +6,41 @@ using UnityEngine;
 
 namespace Heatmap.Scripts.Recorder
 {
-    public abstract class AbstractRecorder : MonoBehaviour
+    public class RecordeSettingContainer
     {
-        [SerializeField] private float _recordInterval = 0.2f;
-        [SerializeField] private bool _isRecording;
-        [SerializeField] private string _eventName;
+        public float RecordInterval { get; }
+        public string EventName { get; }
+        public Func<Vector3> GetData { get; }
 
-        protected string EventName => _eventName;
+
+        public RecordeSettingContainer(string eventName, float recordInterval, Func<Vector3> getData)
+        {
+            RecordInterval = recordInterval;
+            EventName = eventName;
+            GetData = getData;
+        }
+    }
+
+    public abstract class AbstractRecorder : IRecorder
+    {
+        protected abstract IEventWriter EventWriter { get; }
+
+        private Coroutine _recording;
+        private bool _isRecording;
+        private ICoroutineRunner _coroutineRunner;
+        private readonly RecordeSettingContainer _recordeSettingContainer;
+
+
+        protected AbstractRecorder(RecordeSettingContainer recordeSettingContainer,
+            ICoroutineRunner coroutineRunner)
+        {
+            _recordeSettingContainer = recordeSettingContainer;
+            _coroutineRunner = coroutineRunner;
+        }
 
         public void StartRecorde()
         {
-            recording = StartCoroutine(Recorde());
+            _recording = _coroutineRunner.StartCoroutine(Recorde());
             _isRecording = true;
         }
 
@@ -23,32 +48,33 @@ namespace Heatmap.Scripts.Recorder
         {
             if (_isRecording)
             {
-                StopCoroutine(recording);
+                _coroutineRunner.StopCoroutine(_recording);
             }
+
             _isRecording = false;
         }
-
-        private Coroutine recording;
 
         private IEnumerator Recorde()
         {
             while (true)
             {
                 RecordAndSaveEvent();
-                yield return new WaitForSeconds(_recordInterval);
+                yield return new WaitForSeconds(_recordeSettingContainer.RecordInterval);
             }
         }
 
         private void RecordAndSaveEvent()
         {
-            var baseEvent = PrepareData();
+            var baseEvent = PrepareData(_recordeSettingContainer.GetData());
 
             if (baseEvent == null) return;
 
             EventWriter.SaveEvent(baseEvent);
         }
 
-        protected abstract IEventWriter EventWriter { get; }
-        protected abstract BaseEvent PrepareData();
+        private BaseEvent PrepareData(Vector3 getData)
+        {
+            return new BaseEvent(_recordeSettingContainer.EventName, getData);
+        }
     }
 }
