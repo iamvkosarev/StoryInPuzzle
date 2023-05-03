@@ -8,11 +8,21 @@ namespace Heatmap
     {
         public const string MENU_PATH = @"Tools/Heatmap/";
         
-        [MenuItem(MENU_PATH + "Controllers/JSON Controller", false, 100)]
-        private static void AddController()
+        [MenuItem(MENU_PATH + "JSON Controller", false, 100)]
+        private static void AddJSONController()
         {
-            var controllerGO = new GameObject("JSON Heatmap Controller");
-            controllerGO.AddComponent<JsonHeatmapController>();
+            SpawnFromResources("JSON Heatmap Controller");
+        }
+        [MenuItem(MENU_PATH + "Firebase Controller", false, 100)]
+        private static void AddFirebaseController()
+        {
+            SpawnFromResources("Firebase Heatmap Controller");
+        }
+
+        private static void SpawnFromResources(string fileName)
+        {
+            var gameObject = Object.Instantiate(Resources.Load(fileName) as GameObject);
+            gameObject.name = fileName;
         }
     }
 }

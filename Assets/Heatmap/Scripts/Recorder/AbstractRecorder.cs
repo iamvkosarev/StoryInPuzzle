@@ -1,11 +1,10 @@
 using System.Collections;
+using Heatmap.Events;
+using Heatmap.Writers;
 using UnityEngine;
 
-namespace Heatmap.Recorder
+namespace Heatmap.Scripts.Recorder
 {
-    using Events;
-    using Writers;
-
     public abstract class AbstractRecorder : MonoBehaviour
     {
         [SerializeField] private float _recordInterval = 0.2f;
@@ -14,7 +13,7 @@ namespace Heatmap.Recorder
 
         protected string EventName => _eventName;
 
-        public virtual void StartRecorde()
+        public void StartRecorde()
         {
             recording = StartCoroutine(Recorde());
             _isRecording = true;

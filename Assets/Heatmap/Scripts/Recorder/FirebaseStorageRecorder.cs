@@ -1,10 +1,9 @@
-using System.Threading.Tasks;
 using Firebase.Storage;
 using UnityEngine;
 
-namespace Heatmap.Recorder
+namespace Heatmap.Scripts.Recorder
 {
-    public abstract class AbstractFirebaseStorageRecorder : AbstractJSONRecorder
+    public abstract class FirebaseStorageRecorder : JSONRecorder
     {
         [SerializeField] private string _fileNameInStorage;
         

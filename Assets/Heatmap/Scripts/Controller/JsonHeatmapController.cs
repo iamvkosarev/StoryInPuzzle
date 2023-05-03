@@ -24,7 +24,7 @@ namespace Heatmap.Controller
         {
             Stopwatch stopwatch = new();
             stopwatch.Start();
-            eventReader = new JSONEventReader(settings.FilePath);
+            eventReader = new JSONEventReader(settings.SavePath.FilePath);
             SetEvents(await eventReader.ReadEvents());
             
             stopwatch.Stop();

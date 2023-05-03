@@ -7,14 +7,12 @@ namespace Heatmap.Writers
     using Events;
     public abstract class FileEventWriter : IEventWriter
     {
-        private readonly bool createFileIfNonFound;
         private readonly string path;
 
         protected string Path => path;
 
-        protected FileEventWriter(bool createFileIfNonFound, string path)
+        protected FileEventWriter(string path)
         {
-            this.createFileIfNonFound = createFileIfNonFound;
             this.path = path;
             Prepare();
         }
@@ -22,10 +20,7 @@ namespace Heatmap.Writers
         private void Prepare()
         {
             if (File.Exists(path)) return;
-            if (createFileIfNonFound)
-            {
-                CreateFolderAndFile();
-            }
+            CreateFolderAndFile();
         }
 
         // ReSharper disable Unity.PerformanceAnalysis

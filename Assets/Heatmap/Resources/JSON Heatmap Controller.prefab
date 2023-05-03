@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6402074078250038709}
   - component: {fileID: 6402074077407845003}
   m_Layer: 0
-  m_Name: JSONHeatmapController
+  m_Name: JSON Heatmap Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

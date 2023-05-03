@@ -24,7 +24,7 @@ namespace Heatmap.Writers
             }
         }
 
-        public JSONEventWriter(bool createFileIfNonFound, string path) : base(createFileIfNonFound, path)
+        public JSONEventWriter(string path) : base(path)
         {
         }
     }

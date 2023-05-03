@@ -1,5 +1,5 @@
 using System;
-using Heatmap.Recorder;
+using Heatmap.Scripts.Recorder;
 using UnityEngine;
 
 namespace Core.HeatmapTest

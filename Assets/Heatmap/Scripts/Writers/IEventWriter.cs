@@ -6,4 +6,5 @@ namespace Heatmap.Writers
     {
         void SaveEvent(BaseEvent baseEvent);
     }
+    
 }

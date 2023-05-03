@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1407726007531180636}
   - component: {fileID: 5740058708632351066}
   m_Layer: 0
-  m_Name: PlayerPositionRecorder
+  m_Name: Player Position Recorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

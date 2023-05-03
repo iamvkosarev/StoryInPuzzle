@@ -1,14 +1,11 @@
 using UnityEngine;
 
-namespace Heatmap.Recorder
+namespace Heatmap.Scripts.Recorder
 {
     public abstract class AbstractFileRecorder : AbstractRecorder
     {
-        [SerializeField] private string path;
-        [SerializeField] private bool createFileIfNull = true;
+        [SerializeField] private string _path;
 
-        protected string Path => path;
-
-        protected bool CreateFileIfNull => createFileIfNull;
+        protected string Path => _path;
     }
 }

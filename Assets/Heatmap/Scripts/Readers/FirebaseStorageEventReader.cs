@@ -45,7 +45,6 @@ namespace Heatmap.Readers
 
                 foreach (var line in lines)
                 {
-                    Debug.Log($"Check: {line}");
                     var baseEvent = JsonUtility.FromJson<BaseEvent>(line);
 
                     if (baseEvent.EventName != null)
