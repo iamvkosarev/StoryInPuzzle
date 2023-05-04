@@ -1612,8 +1612,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: a30f9d16173085947b42b4725e8ddfa4, type: 2}
     - target: {fileID: 8126675080580191935, guid: b7a54d8b67b5c43418b1432a28b0981b, type: 3}
+      propertyPath: _JSONSavePath
+      value: 
+      objectReference: {fileID: 11400000, guid: a30f9d16173085947b42b4725e8ddfa4, type: 2}
+    - target: {fileID: 8126675080580191935, guid: b7a54d8b67b5c43418b1432a28b0981b, type: 3}
       propertyPath: abstractRecorder
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8126675080580191935, guid: b7a54d8b67b5c43418b1432a28b0981b, type: 3}
+      propertyPath: _firebaseSavePath
+      value: 
+      objectReference: {fileID: 11400000, guid: dc4352c17ea3e834e933caf170d230a7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7a54d8b67b5c43418b1432a28b0981b, type: 3}

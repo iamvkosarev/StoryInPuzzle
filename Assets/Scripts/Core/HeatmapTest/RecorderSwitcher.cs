@@ -1,3 +1,6 @@
+using System.Threading.Tasks;
+using Core.AssetLoading;
+using Core.AssetLoading.Concret;
 using Heatmap.Controller;
 using Heatmap.Scripts.Recorder;
 using UnityEngine;
@@ -9,28 +12,41 @@ namespace Core.HeatmapTest
         private IRecorder recorder;
         [SerializeField] private Transform _player;
         [SerializeField] private Vector3 _offcet;
-        [SerializeField] private KeyCode switchKey;
+        [SerializeField] private KeyCode _switchKey = KeyCode.R;
+        [SerializeField] private SavePath _JSONSavePath;
+        [SerializeField] private SavePath _firebaseSavePath;
         [SerializeField] private bool isRecording;
-        [SerializeField] private SavePath _savePath;
 
-
+        private IAssetLoader<RecorderScreen> _recorderScreenAssetLoader;
         private void Awake()
         {
-            recorder = RecorderFactory.Instance.GetJSONRecorder(
-                new RecordeSettingContainer("playerMove", 0.2f, GetPlayerPos), _savePath.FilePath);
+            _recorderScreenAssetLoader = new RecorderScreenLoader();
+            recorder = RecorderFactory.Instance.GetFirebaseRecorder(
+                new RecordeSettingContainer("playerMove", 0.2f, GetPlayerPos), _JSONSavePath.FilePath, _firebaseSavePath.FilePath);
         }
 
         private Vector3 GetPlayerPos() => _player.transform.position + _offcet;
 
         private void Update()
         {
-            if (Input.GetKeyDown(switchKey))
+            if (Input.GetKeyDown(_switchKey))
             {
-                isRecording = !isRecording;
-                if (isRecording)
-                    recorder.StartRecorde();
-                else
-                    recorder.StopRecorde();
+                SwitchRecorder();
+            }
+        }
+
+        private async Task SwitchRecorder()
+        {
+            isRecording = !isRecording;
+            if (isRecording)
+            {
+                await _recorderScreenAssetLoader.LoadAssetAsync();
+                recorder.StartRecorde();
+            }
+            else
+            {
+                _recorderScreenAssetLoader.ReleaseAsset();
+                recorder.StopRecorde();
             }
         }
     }
