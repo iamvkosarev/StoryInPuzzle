@@ -29,6 +29,7 @@ namespace StoryInPuzzle.Infrastructure.Services.AssetLoader
         {
             if (_loadedAsset == null) return;
             _loadedAsset.gameObject.SetActive(false);
+            Debug.Log($"Unload: {typeof(T)}");
             Addressables.Release(_loadedAsset);
             _loadedAsset = null;
         }

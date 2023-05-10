@@ -8,7 +8,7 @@ namespace StoryInPuzzle.Infrastructure
 
     public class GameBootstrapper : MonoBehaviour, ICoroutineRunner
     {
-        [SerializeField] private LoadingScreen _loadingScreen;
+        [SerializeField] private Curtain curtain;
         [SerializeField] private GameConfig _gameConfig;
         
 
@@ -16,7 +16,7 @@ namespace StoryInPuzzle.Infrastructure
 
         private void Awake()
         {
-            _game = new Game(this, _loadingScreen, _gameConfig);
+            _game = new Game(this, curtain, _gameConfig);
             _game.GameStateMachine.Enter<BootstrapState>();
             DontDestroyOnLoad(this);
         }

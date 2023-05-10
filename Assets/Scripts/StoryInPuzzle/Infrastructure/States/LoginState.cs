@@ -9,16 +9,17 @@ namespace StoryInPuzzle.Infrastructure.States
 {
     public class LoginState : IState
     {
-        private readonly ILoadingScreen _loadingScreen;
+        private readonly ICurtain _curtain;
         private readonly IGameStateMachine _gameStateMachine;
         private readonly ILoginScreenProvider _loginScreenProvider;
         private readonly IGameDataContainer _gameDataContainer;
         private readonly ISaveLoadData _saveLoadData;
         private LoginScreen _screen;
 
-        public LoginState(ILoadingScreen loadingScreen, IGameStateMachine gameStateMachine, ILoginScreenProvider loginScreenProvider, IGameDataContainer gameDataContainer, ISaveLoadData saveLoadData)
+        public LoginState(ICurtain curtain, IGameStateMachine gameStateMachine,
+            ILoginScreenProvider loginScreenProvider, IGameDataContainer gameDataContainer, ISaveLoadData saveLoadData)
         {
-            _loadingScreen = loadingScreen;
+            _curtain = curtain;
             _gameStateMachine = gameStateMachine;
             _loginScreenProvider = loginScreenProvider;
             _gameDataContainer = gameDataContainer;
@@ -27,11 +28,20 @@ namespace StoryInPuzzle.Infrastructure.States
 
         public async void Enter()
         {
-            _loadingScreen.Show();
+            _curtain.Show();
             _screen = await _loginScreenProvider.Load();
-            _loadingScreen.Hide();
+            _curtain.Hide();
+
+            SetNicknameIfNotNull();
+
             _screen.ErrorMessage.gameObject.SetActive(false);
             _screen.SendButton.onClick.AddListener(TrySaveLogin);
+        }
+
+        private void SetNicknameIfNotNull()
+        {
+            if (!_gameDataContainer.GameData.PlayerData.NickName.IsNullOrWhitespace())
+                _screen.Input.text = _gameDataContainer.GameData.PlayerData.NickName;
         }
 
         private void TrySaveLogin()
@@ -49,6 +59,7 @@ namespace StoryInPuzzle.Infrastructure.States
                 _screen.ErrorMessage.text = "Логин должен стоять максимум из 16 символов";
                 return;
             }
+
             SaveLogin();
             _gameStateMachine.Enter<SelectLevelsState>();
         }

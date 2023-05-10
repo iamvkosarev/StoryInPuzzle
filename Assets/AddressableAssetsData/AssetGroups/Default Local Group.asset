@@ -33,6 +33,18 @@ MonoBehaviour:
     m_Address: SelectLevelScreen
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: dd6f3e20c7060ae4a8c9cbe9319cb43e
+    m_Address: Level 1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ab4080531cfe5104fafc728380fd838e
+    m_Address: PlayerGameScreen
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 77947eab0a9fcf242961a240613fe794
+    m_Address: Start
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 86172752a5641994dab4d58625a257e1, type: 2}
   m_SchemaSet:

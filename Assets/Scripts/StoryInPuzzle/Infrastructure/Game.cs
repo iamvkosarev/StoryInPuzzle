@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using StoryInPuzzle.Infrastructure.Services;
 using StoryInPuzzle.Infrastructure.Services.AssetLoader.Concrete.LoginScreen;
+using StoryInPuzzle.Infrastructure.Services.AssetLoader.Concrete.PlayerGameScreen;
 using StoryInPuzzle.Infrastructure.Services.AssetLoader.Concrete.SelectLevelScreen;
 using StoryInPuzzle.Infrastructure.Services.Config;
 using StoryInPuzzle.Infrastructure.Services.Data;
@@ -15,26 +16,29 @@ namespace StoryInPuzzle.Infrastructure
         private readonly ServicesContainer _serviceContainer;
         public readonly GameStateMachine GameStateMachine;
 
-        public Game(ICoroutineRunner coroutineRunner, LoadingScreen loadingScreen, GameConfig gameConfig)
+        public Game(ICoroutineRunner coroutineRunner, Curtain curtain, GameConfig gameConfig)
         {
             _serviceContainer = new ServicesContainer();
             _serviceContainer.RegisterServiceInterfaces<LoginScreenProvider>();
             _serviceContainer.RegisterServiceInterfaces<SelectLevelScreenProvider>();
-            
+            _serviceContainer.RegisterServiceInterfaces<PlayerGameScreenProvider>();
+
             _serviceContainer.RegisterServiceInterfaces<SceneLoader>();
             _serviceContainer.RegisterServiceInterfaces<GameDataContainer>();
             _serviceContainer.RegisterServiceInterfaces<SaveLoadData>();
             _serviceContainer.RegisterServiceInterfacesFromInstance(new GameConfigProvider(gameConfig));
             _serviceContainer.RegisterServiceInterfacesFromInstance(coroutineRunner);
-            _serviceContainer.RegisterServiceInterfacesFromInstance(loadingScreen);
+            _serviceContainer.RegisterServiceInterfacesFromInstance(curtain);
 
             GameStateMachine = new GameStateMachine(_serviceContainer);
             _serviceContainer.RegisterServiceInterfacesFromInstance(GameStateMachine);
             
+            GameStateMachine.RegisterState<LoadLevelState>();
             GameStateMachine.RegisterState<BootstrapState>();
             GameStateMachine.RegisterState<CheckLoginState>();
             GameStateMachine.RegisterState<LoginState>();
             GameStateMachine.RegisterState<SelectLevelsState>();
+            GameStateMachine.RegisterState<GameLoopState>();
         }
     }
 }

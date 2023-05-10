@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace StoryInPuzzle.Infrastructure.Services.Config.Concrete
@@ -5,8 +6,8 @@ namespace StoryInPuzzle.Infrastructure.Services.Config.Concrete
     [CreateAssetMenu(menuName = "StoryInPuzzle/LevelsConfig")]
     public class LevelsConfig : ScriptableObject
     {
-        [SerializeField] private int levelsCount;
+        [SerializeField] private List<string> _levels;
 
-        public int LevelsCount => levelsCount;
+        public List<string> Levels => _levels;
     }
 }

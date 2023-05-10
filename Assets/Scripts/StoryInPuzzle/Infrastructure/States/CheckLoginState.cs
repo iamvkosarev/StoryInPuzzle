@@ -7,7 +7,6 @@ namespace StoryInPuzzle.Infrastructure.States
 {
     public class CheckLoginState : IState
     {
-        private const string LoginScene = "Login Scene";
         private readonly IGameStateMachine _stateMachine;
         private readonly IGameDataContainer _gameDataContainer;
 
@@ -16,7 +15,7 @@ namespace StoryInPuzzle.Infrastructure.States
             _stateMachine = stateMachine;
             _gameDataContainer = gameDataContainer;
         }
-        public async void Enter()
+        public void Enter()
         {
             if (IsPlayerSelectedNickName())
             {

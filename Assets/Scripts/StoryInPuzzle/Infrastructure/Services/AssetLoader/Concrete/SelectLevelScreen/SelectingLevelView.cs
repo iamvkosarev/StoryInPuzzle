@@ -10,13 +10,13 @@ namespace StoryInPuzzle.Infrastructure.Services.AssetLoader.Concrete.SelectLevel
         [SerializeField] private Button _selectButton;
         [SerializeField] private TextMeshProUGUI _setLevelTextFrom;
         private Action<SelectingLevelView> _activatingAction;
-        public int LevelNumber { get; private set; }
+        public int LevelIndex { get; private set; }
 
 
-        public void SetLevel(int levelNumber)
+        public void SetLevel(int levelIndex)
         {
-            _setLevelTextFrom.text = levelNumber.ToString();
-            LevelNumber = levelNumber;
+            _setLevelTextFrom.text = (levelIndex + 1).ToString();
+            LevelIndex = levelIndex;
         }
 
         public void SetActivatingAction(Action<SelectingLevelView> activatingAction)

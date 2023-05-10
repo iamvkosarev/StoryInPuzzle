@@ -5,7 +5,7 @@ using UnityEngine;
 namespace StoryInPuzzle.Infrastructure.Services.LoadingScreen
 {
     [RequireComponent(typeof(CanvasGroup))]
-    public class LoadingScreen : MonoBehaviour, ILoadingScreen
+    public class Curtain : MonoBehaviour, ICurtain
     {
         [SerializeField] private float _hideDuration = 0.4f;
 

@@ -1,6 +1,6 @@
 namespace StoryInPuzzle.Infrastructure.Services.LoadingScreen
 {
-    public interface ILoadingScreen : IService
+    public interface ICurtain : IService
     {
         void Show();
         void Hide();

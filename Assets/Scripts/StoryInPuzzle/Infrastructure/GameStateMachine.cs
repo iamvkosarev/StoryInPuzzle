@@ -7,38 +7,65 @@ namespace StoryInPuzzle.Infrastructure
     public interface IGameStateMachine : IService
     {
         void Enter<TState>() where TState : class, IState;
+        void Enter<TState, TPayload>(TPayload data) where TState : class, IPayloadState<TPayload>;
     }
 
     public class GameStateMachine : IGameStateMachine
     {
         private readonly ServicesContainer _servicesContainer;
-        private readonly Dictionary<Type, IState> _states = new();
-        private IState _currentState;
+        private readonly Dictionary<Type, IExitState> _states = new();
+        private IExitState _currentState;
 
 
         public GameStateMachine(ServicesContainer servicesContainer)
         {
             _servicesContainer = servicesContainer;
         }
-        public void RegisterState<TState>() where TState : class, IState
+        public void RegisterState<TState>() where TState : class, IExitState
         {
             var type = typeof(TState);
             if(_states.ContainsKey(type)) throw new InvalidOperationException($"State type of '{type}' was already registered");
             _states.Add(type, GetStateInstance<TState>());
         }
 
-        private IState GetStateInstance<TState>()where TState : class, IState
+        public void Enter<TState>() where TState : class, IState
+        {
+            ExitLastState();
+            ((IState)SetState<TState>()).Enter();
+        }
+
+        public void Enter<TState, TPayLoad>(TPayLoad data) where TState : class, IPayloadState<TPayLoad>
+        {
+            ExitLastState();
+            ((IPayloadState<TPayLoad>)SetState<TState>()).Enter(data);
+        }
+
+        private IExitState SetState<TState>() where TState : class, IExitState
+        {
+            var state = GetState<TState>();
+            _currentState = state;
+            //Debug.Log($"Enter: {typeof(TState)}");
+            return state;
+        }
+
+        private void ExitLastState()
+        {
+            /*if(_currentState != null)
+                Debug.Log($"Exit: {_currentState.GetType()}");*/
+            _currentState?.Exit();
+        }
+
+        private IExitState GetStateInstance<TState>()where TState : class, IExitState
         {
             return _servicesContainer.GetInstance<TState>();
         }
 
-        public void Enter<TState>() where TState : class, IState
+        private IExitState GetState<TState>() where TState : class, IExitState
         {
             var newStateType = typeof(TState);
-            if (!_states.ContainsKey(newStateType)) throw new InvalidOperationException("Selected state not presented in states list.");
-            _currentState?.Exit();
-            _currentState = _states[typeof(TState)];
-            _currentState.Enter();
+            if (!_states.ContainsKey(newStateType))
+                throw new InvalidOperationException("Selected state not presented in states list.");
+            return _states[typeof(TState)];
         }
     }
 }

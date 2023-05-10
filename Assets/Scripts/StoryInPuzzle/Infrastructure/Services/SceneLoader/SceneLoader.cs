@@ -16,11 +16,10 @@ namespace StoryInPuzzle.Infrastructure.Services.SceneLoader
                 return SceneManager.GetActiveScene();
             }
 
-            var handle = Addressables.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+            var handle = Addressables.LoadSceneAsync(sceneName);
             await handle.Task;
             if (handle.Status == AsyncOperationStatus.Succeeded)
             {
-                Debug.Log($"Scene '{sceneName}' loaded successfully.");
                 SceneManager.SetActiveScene(handle.Result.Scene);
                 return handle.Result.Scene;
             }

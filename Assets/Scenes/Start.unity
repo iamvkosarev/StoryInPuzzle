@@ -461,7 +461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16981131, g: 0.15122819, b: 0.15122819, a: 0.24313726}
+  m_Color: {r: 0.16981131, g: 0.15122819, b: 0.15122819, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -501,7 +501,7 @@ GameObject:
   - component: {fileID: 1981993361}
   - component: {fileID: 1981993360}
   m_Layer: 5
-  m_Name: Loading Screen
+  m_Name: Curtain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -659,6 +659,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f98904d14634437c851e9d1289ee7cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _loadingScreen: {fileID: 1981993360}
+  curtain: {fileID: 1981993360}
   _gameConfig:
     _levelsConfig: {fileID: 11400000, guid: a755440abad44344fab231a5f47b3e61, type: 2}

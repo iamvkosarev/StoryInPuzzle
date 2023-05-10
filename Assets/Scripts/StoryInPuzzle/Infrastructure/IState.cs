@@ -1,8 +1,17 @@
 namespace StoryInPuzzle.Infrastructure
 {
-    public interface IState
+    public interface IExitState
+    {
+        void Exit();
+    }
+
+    public interface IState : IExitState
     {
         void Enter();
-        void Exit();
+    }
+
+    public interface IPayloadState<T> : IExitState
+    {
+        void Enter(T levelIndex);
     }
 }
