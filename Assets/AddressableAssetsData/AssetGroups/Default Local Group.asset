@@ -21,6 +21,18 @@ MonoBehaviour:
     m_Address: RecorderScreen
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: a49d7236059e4f348adbdcd453b2516b
+    m_Address: LoginScreen
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f855cd904a841df43a7f18966e8b28e9
+    m_Address: Assets/Addressables/Select Level Screen/SelectingLevelView.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: fabfb8db7970b344eb325c6ce3506637
+    m_Address: SelectLevelScreen
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 86172752a5641994dab4d58625a257e1, type: 2}
   m_SchemaSet:
