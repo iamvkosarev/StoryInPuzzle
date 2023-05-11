@@ -20,7 +20,7 @@ namespace Heatmap.Controller
         {
             Stopwatch stopwatch = new();
             stopwatch.Start();
-            eventReader = new FirebaseStorageEventReader(settings.SavePath.FilePath);
+            eventReader = new FirebaseStorageEventReader(settings.BasicSavePath.FilePath);
             SetEvents(await eventReader.ReadEvents());
             
             stopwatch.Stop();

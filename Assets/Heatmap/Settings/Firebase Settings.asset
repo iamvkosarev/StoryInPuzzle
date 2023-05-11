@@ -17,8 +17,8 @@ MonoBehaviour:
   particleDistance: 0.2
   particleSize: 2.5
   startValueToShowColor: 0.05
-  coloringRadius: 1.2
-  colorMultiplier: 0.4
+  coloringRadius: 1.3
+  colorMultiplier: 0.01
   showColoringInYAxis: 1
   gradient:
     serializedVersion: 2
@@ -49,4 +49,4 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 3
     m_NumAlphaKeys: 3
-  _savePath: {fileID: 11400000, guid: dc4352c17ea3e834e933caf170d230a7, type: 2}
+  basicSavePath: {fileID: 11400000, guid: 41d91958e3a205340acaf26235f8f033, type: 2}

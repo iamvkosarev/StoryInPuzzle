@@ -33,7 +33,7 @@ namespace Heatmap.Readers
             {
                 if (task.IsFaulted || task.IsCanceled)
                 {
-                    Debug.LogError("Failed to download JSON file from Firebase Storage");
+                    Debug.LogError($"Failed to download JSON file from Firebase Storage path: {_path}");
                     isLoaded = true;
                     return;
                 }

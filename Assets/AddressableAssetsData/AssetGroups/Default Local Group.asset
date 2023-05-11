@@ -41,8 +41,24 @@ MonoBehaviour:
     m_Address: PlayerGameScreen
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: 77947eab0a9fcf242961a240613fe794
-    m_Address: Start
+  - m_GUID: 20ab1d34e4a009247a0b82eef657a392
+    m_Address: Level Task Screen 0
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ec91211b1d3dc7649a8c644b335aa027
+    m_Address: Assets/Addressables/Levels Tasks/Hidden Object View.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 785d440553c6adf4d81bb2b9f782c63c
+    m_Address: Assets/ScriptableObject/Level Progress.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: cde4abe82827a154db5be06e7f5d892a
+    m_Address: Assets/ScriptableObject/Player Input.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2bcd8df5c1f5ed14d88ca4774f163884
+    m_Address: HelpGameScreen
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0

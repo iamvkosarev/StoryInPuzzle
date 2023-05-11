@@ -35,7 +35,7 @@ namespace Core.AssetLoading
         public void ReleaseAsset()
         {
             if (_createdAsset == null) return;
-            _createdAsset.gameObject.SetActive(false);
+            _createdAsset.SetActive(false);
             Addressables.Release(_createdAsset);
             _createdAsset = null;
         }

@@ -1,4 +1,4 @@
-namespace StoryInPuzzle.Infrastructure.Services.LoadingScreen
+namespace StoryInPuzzle.Infrastructure.Services.Curtain
 {
     public interface ICurtain : IService
     {

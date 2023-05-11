@@ -1,9 +1,12 @@
+using System;
 using System.Collections.Generic;
 using StoryInPuzzle.Infrastructure.Services.AssetLoader.Concrete.LoginScreen;
 using StoryInPuzzle.Infrastructure.Services.AssetLoader.Concrete.SelectLevelScreen;
 using StoryInPuzzle.Infrastructure.Services.Config;
-using StoryInPuzzle.Infrastructure.Services.LoadingScreen;
+using StoryInPuzzle.Infrastructure.Services.Curtain;
+using StoryInPuzzle.Infrastructure.Services.Data;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace StoryInPuzzle.Infrastructure.States
 {
@@ -13,15 +16,17 @@ namespace StoryInPuzzle.Infrastructure.States
         private readonly ISelectLevelScreenProvider _selectLevelScreenProvider;
         private readonly IGameConfigProvider _gameConfigProvider;
         private readonly IGameStateMachine _gameStateMachine;
+        private readonly IGameDataContainer _gameDataContainer;
         private SelectLevelScreen _screen;
 
         public SelectLevelsState(ICurtain curtain, ISelectLevelScreenProvider selectLevelScreenProvider,
-            IGameConfigProvider gameConfigProvider, IGameStateMachine gameStateMachine)
+            IGameConfigProvider gameConfigProvider, IGameStateMachine gameStateMachine, IGameDataContainer gameDataContainer)
         {
             _curtain = curtain;
             _selectLevelScreenProvider = selectLevelScreenProvider;
             _gameConfigProvider = gameConfigProvider;
             _gameStateMachine = gameStateMachine;
+            _gameDataContainer = gameDataContainer;
         }
 
         public async void Enter()
@@ -30,7 +35,9 @@ namespace StoryInPuzzle.Infrastructure.States
             _screen = await _selectLevelScreenProvider.Load();
             _curtain.Hide();
             LoadSelectingLevelsViews();
+            _screen.NicknameText.text = $"Првиет, {_gameDataContainer.GameData.PlayerData.NickName}!";
             _screen.ChangeNameButton.onClick.AddListener(LoadLoginState);
+            _screen.ExitButton.onClick.AddListener(ExitApp);
         }
 
         private void LoadLoginState()
@@ -58,6 +65,16 @@ namespace StoryInPuzzle.Infrastructure.States
         {
             _selectLevelScreenProvider.Unload();
             _screen.ChangeNameButton.onClick.RemoveListener(LoadLoginState);
+            _screen.ExitButton.onClick.RemoveListener(ExitApp);
+        }
+
+        private void ExitApp()
+        {
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
+            Application.Quit();
+#endif
         }
     }
 }

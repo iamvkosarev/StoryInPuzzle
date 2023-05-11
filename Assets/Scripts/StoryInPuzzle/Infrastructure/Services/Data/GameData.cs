@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace StoryInPuzzle.Infrastructure.Services.Data
 {
@@ -6,10 +7,12 @@ namespace StoryInPuzzle.Infrastructure.Services.Data
     public class GameData
     {
         public PlayerData PlayerData;
+        public List<PlayerLevelsSessions> PlayersLevelSessions;
 
         public GameData()
         {
             PlayerData = new PlayerData();
+            PlayersLevelSessions = new List<PlayerLevelsSessions>();
         }
     }
 }

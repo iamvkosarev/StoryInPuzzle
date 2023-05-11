@@ -1,8 +1,7 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
-namespace StoryInPuzzle.Infrastructure.Services.LoadingScreen
+namespace StoryInPuzzle.Infrastructure.Services.Curtain
 {
     [RequireComponent(typeof(CanvasGroup))]
     public class Curtain : MonoBehaviour, ICurtain
@@ -11,6 +10,8 @@ namespace StoryInPuzzle.Infrastructure.Services.LoadingScreen
 
         private CanvasGroup _canvasGroup;
         private Coroutine _hideCoroutine;
+        private static Curtain Instance;
+
 
         private CanvasGroup CanvasGroup
         {
@@ -24,14 +25,21 @@ namespace StoryInPuzzle.Infrastructure.Services.LoadingScreen
 
         private void Awake()
         {
+            if (Instance != null)
+            {
+                Destroy(gameObject);
+                return;
+            }
+            
             DontDestroyOnLoad(this);
+            Instance = this;
         }
 
         public void Show()
         {
             if (_hideCoroutine != null) StopCoroutine(_hideCoroutine);
             CanvasGroup.alpha = 1f;
-            gameObject.SetActive(true);    
+            gameObject.SetActive(true);
         }
 
         public void Hide()
@@ -48,6 +56,7 @@ namespace StoryInPuzzle.Infrastructure.Services.LoadingScreen
                 CanvasGroup.alpha = time / _hideDuration;
                 yield return null;
             }
+
             gameObject.SetActive(false);
         }
     }

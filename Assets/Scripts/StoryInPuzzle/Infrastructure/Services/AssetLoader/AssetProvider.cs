@@ -6,7 +6,7 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 
 namespace StoryInPuzzle.Infrastructure.Services.AssetLoader
 {
-    public abstract class AssetProvider<T> where T : Component
+    public abstract class AssetProvider<T>
     {
         private GameObject _loadedAsset;
         private T _assetComponent;
@@ -14,7 +14,6 @@ namespace StoryInPuzzle.Infrastructure.Services.AssetLoader
 
         public async Task<T> Load()
         {
-            if (_assetComponent != null) return _assetComponent;
             var handle = Addressables.InstantiateAsync(AssetKey);
             await handle.Task;
             if (handle.Status != AsyncOperationStatus.Succeeded)
@@ -29,7 +28,6 @@ namespace StoryInPuzzle.Infrastructure.Services.AssetLoader
         {
             if (_loadedAsset == null) return;
             _loadedAsset.gameObject.SetActive(false);
-            Debug.Log($"Unload: {typeof(T)}");
             Addressables.Release(_loadedAsset);
             _loadedAsset = null;
         }

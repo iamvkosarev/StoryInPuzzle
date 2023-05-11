@@ -7,8 +7,10 @@ namespace StoryInPuzzle.Infrastructure.Services.AssetLoader.Concrete.PlayerGameS
     {
         [SerializeField] private Button _openMenuButton;
         [SerializeField] private Button _openTaskButton;
+        [SerializeField] private Image _activateImage;
 
         public Button OpenMenuButton => _openMenuButton;
         public Button OpenTaskButton => _openTaskButton;
+        public GameObject ActivateImage => _activateImage.gameObject;
     }
 }

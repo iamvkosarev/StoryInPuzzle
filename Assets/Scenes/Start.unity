@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: bd5bc308cd0f10c4bab234a39ea11de1, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -519,7 +519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5be63edb2730488c8c9bc20c6419a5db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hideDuration: 1
+  _hideDuration: 0.5
 --- !u!225 &1981993361
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -662,3 +662,5 @@ MonoBehaviour:
   curtain: {fileID: 1981993360}
   _gameConfig:
     _levelsConfig: {fileID: 11400000, guid: a755440abad44344fab231a5f47b3e61, type: 2}
+  _playerInput: {fileID: 11400000, guid: cde4abe82827a154db5be06e7f5d892a, type: 2}
+  _levelProgress: {fileID: 11400000, guid: 785d440553c6adf4d81bb2b9f782c63c, type: 2}

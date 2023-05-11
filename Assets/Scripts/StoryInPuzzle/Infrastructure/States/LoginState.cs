@@ -1,8 +1,8 @@
 using System.Threading.Tasks;
 using Sirenix.Utilities;
 using StoryInPuzzle.Infrastructure.Services.AssetLoader.Concrete.LoginScreen;
+using StoryInPuzzle.Infrastructure.Services.Curtain;
 using StoryInPuzzle.Infrastructure.Services.Data;
-using StoryInPuzzle.Infrastructure.Services.LoadingScreen;
 using UnityEngine;
 
 namespace StoryInPuzzle.Infrastructure.States
@@ -60,8 +60,42 @@ namespace StoryInPuzzle.Infrastructure.States
                 return;
             }
 
+            if (ContainsCyrillicText(_screen.Input.text))
+            {
+                
+                _screen.ErrorMessage.gameObject.SetActive(true);
+                _screen.ErrorMessage.text = "Текст не должен содержать кириллици";
+                return;
+            }
+
             SaveLogin();
             _gameStateMachine.Enter<SelectLevelsState>();
+        }
+        public static bool ContainsCyrillicText(string text)
+        {
+            bool containsCyrillic = false;
+    
+            foreach (char c in text)
+            {
+                if (IsCyrillicChar(c))
+                {
+                    containsCyrillic = true;
+                    break;
+                }
+            }
+    
+            return containsCyrillic;
+        }
+
+        private static bool IsCyrillicChar(char c)
+        {
+            // Коды диапазонов кириллических символов
+            int cyrillicRange1Start = 0x0400;
+            int cyrillicRange1End = 0x04FF;
+            int cyrillicRange2Start = 0x0500;
+            int cyrillicRange2End = 0x052F;
+    
+            return (c >= cyrillicRange1Start && c <= cyrillicRange1End) || (c >= cyrillicRange2Start && c <= cyrillicRange2End);
         }
 
         private void SaveLogin()

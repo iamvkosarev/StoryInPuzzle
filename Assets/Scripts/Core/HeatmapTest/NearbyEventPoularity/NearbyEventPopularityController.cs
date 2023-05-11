@@ -30,7 +30,7 @@ namespace Core.HeatmapTest
         [Button]
         public async void LoadEvents()
         {
-            eventReader = new JSONEventReader(settings.SavePath.FilePath);
+            eventReader = new JSONEventReader(settings.BasicSavePath.FilePath);
             SetEvents(await eventReader.ReadEvents());
         }
 

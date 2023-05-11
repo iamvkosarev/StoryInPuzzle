@@ -44,14 +44,14 @@ namespace StoryInPuzzle.Infrastructure
         {
             var state = GetState<TState>();
             _currentState = state;
-            //Debug.Log($"Enter: {typeof(TState)}");
+            //Debug.Log($"<color=green>Enter</color>: {typeof(TState)}");
             return state;
         }
 
         private void ExitLastState()
         {
             /*if(_currentState != null)
-                Debug.Log($"Exit: {_currentState.GetType()}");*/
+                Debug.Log($"<color=red>Exit</color>: {_currentState.GetType()}");*/
             _currentState?.Exit();
         }
 

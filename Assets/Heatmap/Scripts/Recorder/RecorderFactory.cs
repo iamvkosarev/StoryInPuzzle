@@ -28,8 +28,8 @@ namespace Heatmap.Scripts.Recorder
         public IRecorder GetJSONRecorder(RecordeSettingContainer recordeSettingContainer, string savePath) =>
             new JSONRecorder(recordeSettingContainer, savePath, this);
 
-        public IRecorder GetFirebaseRecorder(RecordeSettingContainer recordeSettingContainer, string localSavePath,
+        public IRecorder GetFirebaseRecorder(RecordeSettingContainer recordeSettingContainer, string jsonLocalSavePath,
             string storageFilePath) =>
-            new FirebaseStorageRecorder(recordeSettingContainer, localSavePath, storageFilePath, this);
+            new FirebaseStorageRecorder(recordeSettingContainer, jsonLocalSavePath, storageFilePath, this);
     }
 }

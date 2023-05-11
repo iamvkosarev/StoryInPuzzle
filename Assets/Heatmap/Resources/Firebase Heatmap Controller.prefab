@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6289854490958930392}
   - component: {fileID: 6289854490958930374}
   - component: {fileID: 6289854490958930342}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Firebase Heatmap Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
