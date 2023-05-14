@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using StoryInPuzzle.Infrastructure.Services;
 using StoryInPuzzle.Infrastructure.Services.AssetLoader.Concrete.HelpGameScreen;
 using StoryInPuzzle.Infrastructure.Services.AssetLoader.Concrete.LevelTaskScreen;
 using StoryInPuzzle.Infrastructure.Services.AssetLoader.Concrete.LoginScreen;
@@ -20,33 +18,32 @@ namespace StoryInPuzzle.Infrastructure
 {
     public class Game
     {
-        private readonly ServicesContainer _serviceContainer;
         public readonly GameStateMachine GameStateMachine;
 
         public Game(ICoroutineRunner coroutineRunner, Curtain curtain, GameConfig gameConfig, PlayerInput playerInput,
             LevelProgress levelProgress)
         {
-            _serviceContainer = new ServicesContainer();
-            _serviceContainer.RegisterServiceInterfaces<LoginScreenProvider>();
-            _serviceContainer.RegisterServiceInterfaces<SelectLevelScreenProvider>();
-            _serviceContainer.RegisterServiceInterfaces<PlayerGameScreenProvider>();
-            _serviceContainer.RegisterServiceInterfaces<LevelTaskScreenProvider>();
-            _serviceContainer.RegisterServiceInterfaces<LevelContext>();
-            _serviceContainer.RegisterServiceInterfaces<HelpGameScreenProvider>();
-            _serviceContainer.RegisterServiceInterfaces<RecordeScreenProvider>();
-            _serviceContainer.RegisterServiceInterfaces<HeatmapRecorder>();
+            var serviceContainer = new ServicesContainer();
+            serviceContainer.RegisterServiceInterfaces<LoginScreenProvider>();
+            serviceContainer.RegisterServiceInterfaces<SelectLevelScreenProvider>();
+            serviceContainer.RegisterServiceInterfaces<PlayerGameScreenProvider>();
+            serviceContainer.RegisterServiceInterfaces<LevelTaskScreenProvider>();
+            serviceContainer.RegisterServiceInterfaces<LevelContext>();
+            serviceContainer.RegisterServiceInterfaces<HelpGameScreenProvider>();
+            serviceContainer.RegisterServiceInterfaces<RecordeScreenProvider>();
+            serviceContainer.RegisterServiceInterfaces<HeatmapRecorder>();
 
-            _serviceContainer.RegisterServiceInterfaces<SceneLoader>();
-            _serviceContainer.RegisterServiceInterfaces<GameDataContainer>();
-            _serviceContainer.RegisterServiceInterfaces<SaveLoadData>();
-            _serviceContainer.RegisterServiceInterfacesFromInstance(new GameConfigProvider(gameConfig));
-            _serviceContainer.RegisterServiceInterfacesFromInstance(coroutineRunner);
-            _serviceContainer.RegisterServiceInterfacesFromInstance(playerInput);
-            _serviceContainer.RegisterServiceInterfacesFromInstance(levelProgress);
-            _serviceContainer.RegisterServiceInterfacesFromInstance(curtain);
+            serviceContainer.RegisterServiceInterfaces<SceneLoader>();
+            serviceContainer.RegisterServiceInterfaces<GameDataContainer>();
+            serviceContainer.RegisterServiceInterfaces<SaveLoadData>();
+            serviceContainer.RegisterServiceInterfacesFromInstance(new GameConfigProvider(gameConfig));
+            serviceContainer.RegisterServiceInterfacesFromInstance(coroutineRunner);
+            serviceContainer.RegisterServiceInterfacesFromInstance(playerInput);
+            serviceContainer.RegisterServiceInterfacesFromInstance(levelProgress);
+            serviceContainer.RegisterServiceInterfacesFromInstance(curtain);
 
-            GameStateMachine = new GameStateMachine(_serviceContainer);
-            _serviceContainer.RegisterServiceInterfacesFromInstance(GameStateMachine);
+            GameStateMachine = new GameStateMachine(serviceContainer);
+            serviceContainer.RegisterServiceInterfacesFromInstance(GameStateMachine);
 
             GameStateMachine.RegisterState<BootstrapState>();
             GameStateMachine.RegisterState<CheckLoginState>();

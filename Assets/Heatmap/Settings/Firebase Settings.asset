@@ -18,7 +18,7 @@ MonoBehaviour:
   particleSize: 2.5
   startValueToShowColor: 0.05
   coloringRadius: 1.3
-  colorMultiplier: 0.01
+  colorMultiplier: 0.02
   showColoringInYAxis: 1
   gradient:
     serializedVersion: 2

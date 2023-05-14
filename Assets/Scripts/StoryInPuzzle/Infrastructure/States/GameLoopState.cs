@@ -15,7 +15,7 @@ using UnityEngine.SceneManagement;
 
 namespace StoryInPuzzle.Infrastructure.States
 {
-    public class GameLoopState : IState
+    public sealed class GameLoopState : IState
     {
         private const string StartSceneKey = "Start";
         private readonly ICoroutineRunner _coroutineRunner;

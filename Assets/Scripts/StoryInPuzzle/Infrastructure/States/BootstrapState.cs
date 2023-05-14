@@ -2,7 +2,7 @@ using StoryInPuzzle.Infrastructure.Services.Data;
 
 namespace StoryInPuzzle.Infrastructure.States
 {
-    public class BootstrapState : IState
+    public sealed class BootstrapState : IState
     {
         private readonly IGameStateMachine _gameStateMachine;
         private readonly ISaveLoadData _saveLoadData;

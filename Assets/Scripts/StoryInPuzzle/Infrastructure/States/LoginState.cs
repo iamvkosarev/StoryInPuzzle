@@ -1,13 +1,11 @@
-using System.Threading.Tasks;
 using Sirenix.Utilities;
 using StoryInPuzzle.Infrastructure.Services.AssetLoader.Concrete.LoginScreen;
 using StoryInPuzzle.Infrastructure.Services.Curtain;
 using StoryInPuzzle.Infrastructure.Services.Data;
-using UnityEngine;
 
 namespace StoryInPuzzle.Infrastructure.States
 {
-    public class LoginState : IState
+    public sealed class LoginState : IState
     {
         private readonly ICurtain _curtain;
         private readonly IGameStateMachine _gameStateMachine;

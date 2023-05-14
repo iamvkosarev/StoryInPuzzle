@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace StoryInPuzzle.Infrastructure.States
 {
-    public class ShowTaskState : IPayloadState<int>
+    public sealed class ShowTaskState : IPayloadState<int>
     {
         private readonly ILevelTaskScreenProvider _levelTaskScreenProvider;
         private readonly IGameStateMachine _stateMachine;

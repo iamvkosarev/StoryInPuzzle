@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace StoryInPuzzle.Infrastructure.States
 {
-    public class CheckLoginState : IState
+    public sealed class CheckLoginState : IState
     {
         private readonly IGameStateMachine _stateMachine;
         private readonly IGameDataContainer _gameDataContainer;

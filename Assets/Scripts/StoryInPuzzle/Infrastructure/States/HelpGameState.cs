@@ -2,7 +2,7 @@ using StoryInPuzzle.Infrastructure.Services.AssetLoader.Concrete.HelpGameScreen;
 
 namespace StoryInPuzzle.Infrastructure.States
 {
-    public class HelpGameState : IState
+    public sealed class HelpGameState : IState
     {
         private readonly IHelpGameScreenProvider _helpGameScreenProvider;
         private readonly IGameStateMachine _stateMachine;

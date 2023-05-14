@@ -12,7 +12,7 @@ using UnityEngine;
 
 namespace StoryInPuzzle.Infrastructure.States
 {
-    public class LoadLevelState : IPayloadState<int>
+    public sealed class LoadLevelState : IPayloadState<int>
     {
         private readonly IGameConfigProvider _configProvider;
         private readonly ISceneLoader _sceneLoader;

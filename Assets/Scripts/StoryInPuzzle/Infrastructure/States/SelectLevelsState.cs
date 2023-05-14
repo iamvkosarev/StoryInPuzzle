@@ -1,16 +1,12 @@
-using System;
-using System.Collections.Generic;
-using StoryInPuzzle.Infrastructure.Services.AssetLoader.Concrete.LoginScreen;
 using StoryInPuzzle.Infrastructure.Services.AssetLoader.Concrete.SelectLevelScreen;
 using StoryInPuzzle.Infrastructure.Services.Config;
 using StoryInPuzzle.Infrastructure.Services.Curtain;
 using StoryInPuzzle.Infrastructure.Services.Data;
-using UnityEngine;
 using Object = UnityEngine.Object;
 
 namespace StoryInPuzzle.Infrastructure.States
 {
-    public class SelectLevelsState : IState
+    public sealed class SelectLevelsState : IState
     {
         private readonly ICurtain _curtain;
         private readonly ISelectLevelScreenProvider _selectLevelScreenProvider;
