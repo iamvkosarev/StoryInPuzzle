@@ -3,6 +3,7 @@ using System.Linq;
 using Heatmap.Controller;
 using Heatmap.Events;
 using Heatmap.Readers;
+using Heatmap.Scripts.Controller.SavePath;
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 using UnityEngine;
@@ -12,7 +13,7 @@ namespace Core.HeatmapTest
     public class NearbyEventPopularityController : MonoBehaviour
     {
         [SerializeField] private List<EventsContainer> eventsContainersList;
-        [SerializeField] private JSONSettings settings;
+        [SerializeField] private BaseSavePath savePath;
         [SerializeField] private Transform popularityParent;
         [SerializeField] private NearbyEventPopularityView nearbyEventPopularityPrefab;
         [SerializeField] private float radiusToCheck = 0.3f;
@@ -30,7 +31,7 @@ namespace Core.HeatmapTest
         [Button]
         public async void LoadEvents()
         {
-            eventReader = new JSONEventReader(settings.BasicSavePath.FilePath);
+            eventReader = new JSONEventReader(savePath.FilePath);
             SetEvents(await eventReader.ReadEvents());
         }
 

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
+using Heatmap.Scripts.Controller.SavePath;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
@@ -12,14 +13,17 @@ namespace Heatmap.Controller
     public abstract class BaseHeatmapController : MonoBehaviour
     {
         [SerializeField] private BoxCollider particleSystemBox;
-        [SerializeField] private List<EventsContainer> eventsContainersList;
+        [SerializeField] private List<EventsContainer> eventsContainersList = new();
+        [SerializeField] private Settings settings;
+        [SerializeField] private BaseSavePath _savePath;
 
-        protected virtual Settings Settings { get; }
+        protected BaseSavePath SavePath => _savePath;
+
         private HeatmapVisualisation heatmapVisualisation;
         private bool particleSystemIsInitialized;
 
         private HeatmapVisualisation HeatmapVisualisation =>
-            heatmapVisualisation ??= new HeatmapVisualisation(Settings);
+            heatmapVisualisation ??= new HeatmapVisualisation(settings);
 
         private List<EventsContainer> EventsContainersList
         {
@@ -27,13 +31,18 @@ namespace Heatmap.Controller
             set => eventsContainersList = value;
         }
 
+        [Button]
+        public void ClearEvents()
+        {
+            EventsContainersList.Clear();
+        }
 
         [Button]
         public abstract void LoadEvents();
 
-        protected void SetEvents(List<EventsContainer> readEvents)
+        protected void AddEvents(IEnumerable<EventsContainer> readEvents)
         {
-            EventsContainersList = readEvents;
+            EventsContainersList.AddRange(readEvents);;
         }
 
         [Button, DisableIf("IsParticlesInitialize"), HorizontalGroup("Initialize")]
@@ -44,7 +53,7 @@ namespace Heatmap.Controller
             HeatmapVisualisation.InitializeParticleSystem(particleSystemBox);
             HeatmapVisualisation.InitializeParticleArray();
             particleSystemIsInitialized = true;
-            Settings.IsParticlesInitialize = particleSystemIsInitialized;
+            settings.IsParticlesInitialize = particleSystemIsInitialized;
             stopwatch.Stop();
             Debug.Log("Создание сетки из частиц - скорость работы " + stopwatch.ElapsedMilliseconds + " мс");
         }
@@ -54,7 +63,7 @@ namespace Heatmap.Controller
         {
             HeatmapVisualisation.DestroyParticleSystem();
             particleSystemIsInitialized = false;
-            Settings.IsParticlesInitialize = particleSystemIsInitialized;
+            settings.IsParticlesInitialize = particleSystemIsInitialized;
         }
 
         private bool IsNotParticlesInitialize => !particleSystemIsInitialized;

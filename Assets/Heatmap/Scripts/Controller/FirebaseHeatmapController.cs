@@ -8,10 +8,6 @@ namespace Heatmap.Controller
 {
     public class FirebaseHeatmapController : BaseHeatmapController
     {
-        [SerializeField] private JSONSettings settings;
-
-        protected override Settings Settings => settings;
-
         private HeatmapVisualisation heatmapVisualisation;
         private IEventReader eventReader;
 
@@ -20,8 +16,8 @@ namespace Heatmap.Controller
         {
             Stopwatch stopwatch = new();
             stopwatch.Start();
-            eventReader = new FirebaseStorageEventReader(settings.BasicSavePath.FilePath);
-            SetEvents(await eventReader.ReadEvents());
+            eventReader = new FirebaseStorageEventReader(SavePath.FilePath);
+            AddEvents(await eventReader.ReadEvents());
             
             stopwatch.Stop();
             Debug.Log("Загрузка событий");

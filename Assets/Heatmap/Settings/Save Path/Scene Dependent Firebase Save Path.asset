@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4063f33156ff43589f0a99229d83372d, type: 3}
   m_Name: Scene Dependent Firebase Save Path
   m_EditorClassIdentifier: 
-  filePath: seva_3.json
+  filePath: seva_4.json

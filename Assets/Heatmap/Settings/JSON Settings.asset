@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eefdec7aed7a4f6cb25fb5d1ae2ef495, type: 3}
+  m_Script: {fileID: 11500000, guid: 643b2c582c104f40b64b057cc005e5ac, type: 3}
   m_Name: JSON Settings
   m_EditorClassIdentifier: 
   particleMaterial: {fileID: 2100000, guid: c355a378bff033046a7f45170ec40d78, type: 2}
@@ -49,4 +49,3 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 3
     m_NumAlphaKeys: 3
-  _savePath: {fileID: 11400000, guid: a30f9d16173085947b42b4725e8ddfa4, type: 2}

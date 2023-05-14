@@ -379,7 +379,8 @@ MonoBehaviour:
       multiplier: 1
     eventName: PlayerPosition
     isCurrentlyDisplayedOnHeatmap: 1
-  settings: {fileID: 11400000, guid: 86600b3d7cb843c4ea6520e3dc8ad3fd, type: 2}
+  settings: {fileID: 11400000, guid: a9faffdae5f020645a53f0a708f1382c, type: 2}
+  _savePath: {fileID: 11400000, guid: a30f9d16173085947b42b4725e8ddfa4, type: 2}
 --- !u!65 &6402074078250038709
 BoxCollider:
   m_ObjectHideFlags: 0

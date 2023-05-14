@@ -11,11 +11,6 @@ namespace Heatmap.Controller
 
     public sealed class JsonHeatmapController : BaseHeatmapController
     {
-        [SerializeField] private JSONSettings settings;
-
-
-        protected override Settings Settings => settings;
-
         private HeatmapVisualisation heatmapVisualisation;
         private IEventReader eventReader;
 
@@ -24,8 +19,8 @@ namespace Heatmap.Controller
         {
             Stopwatch stopwatch = new();
             stopwatch.Start();
-            eventReader = new JSONEventReader(settings.BasicSavePath.FilePath);
-            SetEvents(await eventReader.ReadEvents());
+            eventReader = new JSONEventReader(SavePath.FilePath);
+            AddEvents(await eventReader.ReadEvents());
             
             stopwatch.Stop();
             Debug.Log("Загрузка событий - скорость работы " + stopwatch.ElapsedMilliseconds + " мс");
