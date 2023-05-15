@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
-using Heatmap.Scripts.Controller.SavePath;
+using Heatmap.Readers;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
@@ -15,9 +15,6 @@ namespace Heatmap.Controller
         [SerializeField] private BoxCollider particleSystemBox;
         [SerializeField] private List<EventsContainer> eventsContainersList = new();
         [SerializeField] private Settings settings;
-        [SerializeField] private BaseSavePath _savePath;
-
-        protected BaseSavePath SavePath => _savePath;
 
         private HeatmapVisualisation heatmapVisualisation;
         private bool particleSystemIsInitialized;
@@ -25,11 +22,7 @@ namespace Heatmap.Controller
         private HeatmapVisualisation HeatmapVisualisation =>
             heatmapVisualisation ??= new HeatmapVisualisation(settings);
 
-        private List<EventsContainer> EventsContainersList
-        {
-            get => eventsContainersList;
-            set => eventsContainersList = value;
-        }
+        private List<EventsContainer> EventsContainersList => eventsContainersList;
 
         [Button]
         public void ClearEvents()
@@ -38,12 +31,25 @@ namespace Heatmap.Controller
         }
 
         [Button]
-        public abstract void LoadEvents();
+        public async void LoadEvents()
+        {
+            Stopwatch stopwatch = new();
+            stopwatch.Start();
+            var eventReader = GetEventReader();
+            AddEvents(await eventReader.ReadEvents());
+            
+            stopwatch.Stop();
+            Debug.Log("Загрузка событий - скорость работы "+ stopwatch.ElapsedMilliseconds + " мс");
+        }
 
-        protected void AddEvents(IEnumerable<EventsContainer> readEvents)
+
+        protected abstract IEventReader GetEventReader();
+
+        private void AddEvents(IEnumerable<EventsContainer> readEvents)
         {
             EventsContainersList.AddRange(readEvents);;
         }
+
 
         [Button, DisableIf("IsParticlesInitialize"), HorizontalGroup("Initialize")]
         public void InitializeParticlesSystem()

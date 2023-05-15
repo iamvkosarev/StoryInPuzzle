@@ -1,6 +1,4 @@
 using System.Threading.Tasks;
-using Core.AssetLoading;
-using Core.AssetLoading.Concret;
 using Heatmap.Controller;
 using Heatmap.Scripts.Controller.SavePath;
 using Heatmap.Scripts.Recorder;
@@ -18,10 +16,8 @@ namespace Core.HeatmapTest
         [SerializeField] private BasicSavePath firebaseBasicSavePath;
         [SerializeField] private bool isRecording;
 
-        private IAssetLoader<RecorderScreen> _recorderScreenAssetLoader;
         private void Awake()
         {
-            _recorderScreenAssetLoader = new RecorderScreenLoader();
             recorder = RecorderFactory.Instance.GetFirebaseRecorder(
                 new RecordeSettingContainer("playerMove", 0.2f, GetPlayerPos), jsonBasicSavePath.FilePath, firebaseBasicSavePath.FilePath);
         }
@@ -41,13 +37,11 @@ namespace Core.HeatmapTest
             isRecording = !isRecording;
             if (isRecording)
             {
-                await _recorderScreenAssetLoader.LoadAssetAsync();
-                recorder.StartRecorde();
+                recorder.Play();
             }
             else
             {
-                _recorderScreenAssetLoader.ReleaseAsset();
-                recorder.StopRecorde();
+                recorder.Complete();
             }
         }
     }

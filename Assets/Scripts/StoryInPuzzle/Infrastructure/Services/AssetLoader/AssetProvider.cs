@@ -1,8 +1,10 @@
 using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using Debug = UnityEngine.Debug;
 
 namespace StoryInPuzzle.Infrastructure.Services.AssetLoader
 {
@@ -14,6 +16,8 @@ namespace StoryInPuzzle.Infrastructure.Services.AssetLoader
 
         public async Task<T> Load()
         {
+            Stopwatch stopwatch = new();
+            stopwatch.Start();
             var handle = Addressables.InstantiateAsync(AssetKey);
             await handle.Task;
             if (handle.Status != AsyncOperationStatus.Succeeded)
@@ -21,6 +25,8 @@ namespace StoryInPuzzle.Infrastructure.Services.AssetLoader
                     $"Asset '{AssetKey} couldn't be loaded. Maybe wrong key or asset not added to addressable.");
             _loadedAsset = handle.Result;
             _assetComponent = _loadedAsset.GetComponent<T>();
+            stopwatch.Stop();
+            //Debug.Log($"Загрузка {typeof(T)} - скорость работы " + stopwatch.ElapsedMilliseconds + " мс");
             return _assetComponent;
         }
 

@@ -47,14 +47,14 @@ namespace StoryInPuzzle.Infrastructure.States
             if (_screen.Input.text.IsNullOrWhitespace())
             {
                 _screen.ErrorMessage.gameObject.SetActive(true);
-                _screen.ErrorMessage.text = "Логин должен не должен быть пустым";
+                _screen.ErrorMessage.text = "Имя не должно быть пустым";
                 return;
             }
 
             if (_screen.Input.text.Length >= 16)
             {
                 _screen.ErrorMessage.gameObject.SetActive(true);
-                _screen.ErrorMessage.text = "Логин должен стоять максимум из 16 символов";
+                _screen.ErrorMessage.text = "Имя должен состоять максимум из 16 символов";
                 return;
             }
 
@@ -62,7 +62,7 @@ namespace StoryInPuzzle.Infrastructure.States
             {
                 
                 _screen.ErrorMessage.gameObject.SetActive(true);
-                _screen.ErrorMessage.text = "Текст не должен содержать кириллици";
+                _screen.ErrorMessage.text = "Имя не должно содержать кириллицу";
                 return;
             }
 

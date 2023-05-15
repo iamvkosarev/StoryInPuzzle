@@ -9,10 +9,7 @@ namespace Core.Common
         [SerializeField] private CapsuleCollider capsuleCollider;
 
         public CapsuleCollider CapsuleCollider => capsuleCollider;
-
-
         public Rigidbody Rigidbody => rigidbody;
-
         public Camera Camera => camera;
     }
 }

@@ -1,16 +1,17 @@
 using System;
+using System.IO;
 using Firebase.Storage;
 using UnityEngine;
 
 namespace Heatmap.Scripts.Recorder
 {
-    public class FirebaseStorageRecorder : JSONRecorder
+    internal class FirebaseStorageRecorder : JSONRecorder
     {
         private readonly string _storageFilePath;
 
-        public override void StopRecorde()
+        public override void Complete()
         {
-            base.StopRecorde();
+            base.Complete();
             SendDataToStorage();
         }
 
@@ -33,8 +34,11 @@ namespace Heatmap.Scripts.Recorder
                         var md5Hash = metadata.Md5Hash;
                         Debug.Log("Finished uploading...");
                         Debug.Log("md5 hash = " + md5Hash);
+                        File.Delete(SavePath);
+                        Debug.Log($"Deleted local file: {SavePath}");
                     }
                 });
+            
         }
 
         public FirebaseStorageRecorder(RecordeSettingContainer recordeSettingContainer, string savePath,

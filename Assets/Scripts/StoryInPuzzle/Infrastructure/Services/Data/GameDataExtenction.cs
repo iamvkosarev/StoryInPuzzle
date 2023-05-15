@@ -24,6 +24,7 @@ namespace StoryInPuzzle.Infrastructure.Services.Data
 
             if (playerLevelsSession.LevelsSessionsCount.Count <= levelIndex)
             {
+                playerLevelsSession.LevelsSessionsCount.Add(1);
                 return 1;
             }
 

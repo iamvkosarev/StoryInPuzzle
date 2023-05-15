@@ -35,7 +35,6 @@ namespace StoryInPuzzle.PlayerMovement
 
         private void FixedUpdate()
         {
-            if (!MovementSwitcher.Instance.IsMoving) return;
             if (_playerInput != null)
             {
                 var vAddingVector = GetAddingVector(_playerInput.Horizontal, playerComponent.transform.right,

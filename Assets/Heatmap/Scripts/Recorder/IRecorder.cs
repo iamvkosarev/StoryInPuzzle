@@ -1,8 +1,12 @@
+using System.Threading.Tasks;
+
 namespace Heatmap.Scripts.Recorder
 {
     public interface IRecorder
     {
-        void StartRecorde();
-        void StopRecorde();
+        void Play();
+        void Pause();
+        void Complete();
+        void Break();
     }
 }

@@ -2,6 +2,7 @@ using StoryInPuzzle.Infrastructure.Services.AssetLoader.Concrete.SelectLevelScre
 using StoryInPuzzle.Infrastructure.Services.Config;
 using StoryInPuzzle.Infrastructure.Services.Curtain;
 using StoryInPuzzle.Infrastructure.Services.Data;
+using UnityEngine;
 using Object = UnityEngine.Object;
 
 namespace StoryInPuzzle.Infrastructure.States
@@ -10,17 +11,17 @@ namespace StoryInPuzzle.Infrastructure.States
     {
         private readonly ICurtain _curtain;
         private readonly ISelectLevelScreenProvider _selectLevelScreenProvider;
-        private readonly IGameConfigProvider _gameConfigProvider;
+        private readonly IGameConfig _gameConfig;
         private readonly IGameStateMachine _gameStateMachine;
         private readonly IGameDataContainer _gameDataContainer;
         private SelectLevelScreen _screen;
 
         public SelectLevelsState(ICurtain curtain, ISelectLevelScreenProvider selectLevelScreenProvider,
-            IGameConfigProvider gameConfigProvider, IGameStateMachine gameStateMachine, IGameDataContainer gameDataContainer)
+            IGameConfig gameConfig, IGameStateMachine gameStateMachine, IGameDataContainer gameDataContainer)
         {
             _curtain = curtain;
             _selectLevelScreenProvider = selectLevelScreenProvider;
-            _gameConfigProvider = gameConfigProvider;
+            _gameConfig = gameConfig;
             _gameStateMachine = gameStateMachine;
             _gameDataContainer = gameDataContainer;
         }
@@ -31,7 +32,7 @@ namespace StoryInPuzzle.Infrastructure.States
             _screen = await _selectLevelScreenProvider.Load();
             _curtain.Hide();
             LoadSelectingLevelsViews();
-            _screen.NicknameText.text = $"Првиет, {_gameDataContainer.GameData.PlayerData.NickName}!";
+            _screen.NicknameText.text = $"Здравствуй, {_gameDataContainer.GameData.PlayerData.NickName}!";
             _screen.ChangeNameButton.onClick.AddListener(LoadLoginState);
             _screen.ExitButton.onClick.AddListener(ExitApp);
         }
@@ -43,7 +44,7 @@ namespace StoryInPuzzle.Infrastructure.States
 
         private void LoadSelectingLevelsViews()
         {
-            for (int i = 0; i < _gameConfigProvider.GameConfig.LevelsConfig.Levels.Count; i++)
+            for (int i = 0; i < _gameConfig.LevelsConfig.Levels.Count; i++)
             {
                 var selectingLevelView =
                     Object.Instantiate(_screen.SelectingLevelViewPrefab, _screen.SpawnSelectingLevelsParent);

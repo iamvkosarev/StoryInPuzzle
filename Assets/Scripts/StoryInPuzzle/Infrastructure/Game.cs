@@ -7,7 +7,6 @@ using StoryInPuzzle.Infrastructure.Services.AssetLoader.Concrete.SelectLevelScre
 using StoryInPuzzle.Infrastructure.Services.Config;
 using StoryInPuzzle.Infrastructure.Services.Curtain;
 using StoryInPuzzle.Infrastructure.Services.Data;
-using StoryInPuzzle.Infrastructure.Services.HeatmapRecorder;
 using StoryInPuzzle.Infrastructure.Services.LevelContext;
 using StoryInPuzzle.Infrastructure.Services.LevelProgress;
 using StoryInPuzzle.Infrastructure.Services.PlayerInput;
@@ -18,7 +17,7 @@ namespace StoryInPuzzle.Infrastructure
 {
     public class Game
     {
-        public readonly GameStateMachine GameStateMachine;
+        public readonly GameStateMachine StateMachine;
 
         public Game(ICoroutineRunner coroutineRunner, Curtain curtain, GameConfig gameConfig, PlayerInput playerInput,
             LevelProgress levelProgress)
@@ -31,28 +30,27 @@ namespace StoryInPuzzle.Infrastructure
             serviceContainer.RegisterServiceInterfaces<LevelContext>();
             serviceContainer.RegisterServiceInterfaces<HelpGameScreenProvider>();
             serviceContainer.RegisterServiceInterfaces<RecordeScreenProvider>();
-            serviceContainer.RegisterServiceInterfaces<HeatmapRecorder>();
 
             serviceContainer.RegisterServiceInterfaces<SceneLoader>();
             serviceContainer.RegisterServiceInterfaces<GameDataContainer>();
             serviceContainer.RegisterServiceInterfaces<SaveLoadData>();
-            serviceContainer.RegisterServiceInterfacesFromInstance(new GameConfigProvider(gameConfig));
+            serviceContainer.RegisterServiceInterfacesFromInstance(gameConfig);
             serviceContainer.RegisterServiceInterfacesFromInstance(coroutineRunner);
             serviceContainer.RegisterServiceInterfacesFromInstance(playerInput);
             serviceContainer.RegisterServiceInterfacesFromInstance(levelProgress);
             serviceContainer.RegisterServiceInterfacesFromInstance(curtain);
 
-            GameStateMachine = new GameStateMachine(serviceContainer);
-            serviceContainer.RegisterServiceInterfacesFromInstance(GameStateMachine);
+            StateMachine = new GameStateMachine(serviceContainer);
+            serviceContainer.RegisterServiceInterfacesFromInstance(StateMachine);
 
-            GameStateMachine.RegisterState<BootstrapState>();
-            GameStateMachine.RegisterState<CheckLoginState>();
-            GameStateMachine.RegisterState<LoginState>();
-            GameStateMachine.RegisterState<SelectLevelsState>();
-            GameStateMachine.RegisterState<LoadLevelState>();
-            GameStateMachine.RegisterState<GameLoopState>();
-            GameStateMachine.RegisterState<ShowTaskState>();
-            GameStateMachine.RegisterState<HelpGameState>();
+            StateMachine.RegisterState<BootstrapState>();
+            StateMachine.RegisterState<CheckLoginState>();
+            StateMachine.RegisterState<LoginState>();
+            StateMachine.RegisterState<SelectLevelsState>();
+            StateMachine.RegisterState<LoadLevelState>();
+            StateMachine.RegisterState<GameLoopState>();
+            StateMachine.RegisterState<ShowTaskState>();
+            StateMachine.RegisterState<HelpGameState>();
         }
     }
 }

@@ -27,7 +27,7 @@ namespace StoryInPuzzle.Infrastructure
                 return;
             }
             _game = new Game(this, curtain, _gameConfig, _playerInput, _levelProgress);
-            _game.GameStateMachine.Enter<BootstrapState>();
+            _game.StateMachine.Enter<BootstrapState>();
             
             DontDestroyOnLoad(this);
             Instance = this;

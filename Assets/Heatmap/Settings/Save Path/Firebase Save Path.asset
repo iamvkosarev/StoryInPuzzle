@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 573f58d9868c41caa1565c5863227615, type: 3}
   m_Name: Firebase Save Path
   m_EditorClassIdentifier: 
-  filePath: test_2.json
+  filePath: seva_3.json

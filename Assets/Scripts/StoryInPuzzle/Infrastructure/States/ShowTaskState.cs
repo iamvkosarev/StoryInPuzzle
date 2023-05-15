@@ -18,9 +18,9 @@ namespace StoryInPuzzle.Infrastructure.States
             _stateMachine = stateMachine;
             _levelProgress = levelProgress;
         }
-        public async void Enter(int levelIndex)
+        public async void Enter(int data)
         {
-            _levelTaskScreenProvider.SetTaskScreenIndex(levelIndex);
+            _levelTaskScreenProvider.SetTaskScreenIndex(data);
             _screen = await _levelTaskScreenProvider.Load();
             _screen.CloseButton.onClick.AddListener(CloseTaskScreen);
             LoadHiddenObjectToFind();

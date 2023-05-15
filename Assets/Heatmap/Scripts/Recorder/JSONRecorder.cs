@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Heatmap.Scripts.Recorder
 {
-    public class JSONRecorder : AbstractFileRecorder
+    internal class JSONRecorder : AbstractFileRecorder
     {
         private IEventWriter eventWriter;
 

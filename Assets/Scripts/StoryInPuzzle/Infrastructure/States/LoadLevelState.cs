@@ -1,4 +1,3 @@
-using System;
 using Core.Common;
 using StoryInPuzzle.FiddingObjects;
 using StoryInPuzzle.Infrastructure.Services.Config;
@@ -14,7 +13,7 @@ namespace StoryInPuzzle.Infrastructure.States
 {
     public sealed class LoadLevelState : IPayloadState<int>
     {
-        private readonly IGameConfigProvider _configProvider;
+        private readonly IGameConfig _gameConfig;
         private readonly ISceneLoader _sceneLoader;
         private readonly ICurtain _curtain;
         private readonly IGameStateMachine _stateMachine;
@@ -22,11 +21,11 @@ namespace StoryInPuzzle.Infrastructure.States
         private readonly ILevelContext _levelContext;
         private readonly IPlayerInput _playerInput;
 
-        public LoadLevelState(IGameConfigProvider configProvider, ISceneLoader sceneLoader,
+        public LoadLevelState(IGameConfig gameConfig, ISceneLoader sceneLoader,
             ICurtain curtain, IGameStateMachine stateMachine, ILevelProgress levelProgress, ILevelContext levelContext, IPlayerInput playerInput
         )
         {
-            _configProvider = configProvider;
+            _gameConfig = gameConfig;
             _sceneLoader = sceneLoader;
             _curtain = curtain;
             _stateMachine = stateMachine;
@@ -35,13 +34,13 @@ namespace StoryInPuzzle.Infrastructure.States
             _playerInput = playerInput;
         }
 
-        public async void Enter(int levelIndex)
+        public async void Enter(int data)
         {
             _curtain.Show();
-            await _sceneLoader.LoadScene(_configProvider.GameConfig.LevelsConfig.Levels[levelIndex]);
+            await _sceneLoader.LoadScene(_gameConfig.LevelsConfig.Levels[data]);
             _curtain.Hide();
             SetLevelProgress();
-            SetLevelContext(levelIndex);
+            SetLevelContext(data);
             SetUpScene();
             _stateMachine.Enter<GameLoopState>();
         }

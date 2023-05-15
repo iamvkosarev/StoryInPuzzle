@@ -2,10 +2,8 @@ using System;
 using System.Collections;
 using Heatmap.Scripts.Recorder;
 using StoryInPuzzle.Infrastructure.Services.AssetLoader.Concrete.PlayerGameScreen;
-using StoryInPuzzle.Infrastructure.Services.AssetLoader.Concrete.SelectLevelScreen;
 using StoryInPuzzle.Infrastructure.Services.Curtain;
 using StoryInPuzzle.Infrastructure.Services.Data;
-using StoryInPuzzle.Infrastructure.Services.HeatmapRecorder;
 using StoryInPuzzle.Infrastructure.Services.LevelContext;
 using StoryInPuzzle.Infrastructure.Services.LevelProgress;
 using StoryInPuzzle.Infrastructure.Services.PlayerInput;
@@ -26,17 +24,17 @@ namespace StoryInPuzzle.Infrastructure.States
         private readonly ILevelProgress _levelProgress;
         private readonly ICurtain _curtain;
         private readonly ILevelContext _levelContext;
-        private readonly IHeatmapRecorder _heatmapRecorder;
         private readonly IGameDataContainer _gameDataContainer;
         private readonly ISaveLoadData _saveLoadData;
+        
+        private IRecorder _recorder;
         private int _levelIndex;
         private Coroutine _checkButtonClickCoroutine;
         private PlayerGameScreen _screen;
 
         public GameLoopState(ICoroutineRunner coroutineRunner, IPlayerGameScreenProvider playerGameScreenProvider,
             IGameStateMachine stateMachine, ISceneLoader sceneLoader, IPlayerInput playerInput,
-            ILevelProgress levelProgress, ICurtain curtain, ILevelContext levelContext,
-            IHeatmapRecorder heatmapRecorder, IGameDataContainer gameDataContainer, ISaveLoadData saveLoadData)
+            ILevelProgress levelProgress, ICurtain curtain, ILevelContext levelContext,IGameDataContainer gameDataContainer, ISaveLoadData saveLoadData)
         {
             _coroutineRunner = coroutineRunner;
             _playerGameScreenProvider = playerGameScreenProvider;
@@ -46,7 +44,6 @@ namespace StoryInPuzzle.Infrastructure.States
             _levelProgress = levelProgress;
             _curtain = curtain;
             _levelContext = levelContext;
-            _heatmapRecorder = heatmapRecorder;
             _gameDataContainer = gameDataContainer;
             _saveLoadData = saveLoadData;
         }
@@ -59,10 +56,17 @@ namespace StoryInPuzzle.Infrastructure.States
             _levelIndex = _levelContext.LevelIndex;
             _checkButtonClickCoroutine = _coroutineRunner.StartCoroutine(CheckButtonClickCoroutine());
             _playerInput.Switch(true);
-            _levelProgress.SetCompleteAction(OpenMenu);
+            _levelProgress.SetCompleteAction(CompleteLevel);
             _levelProgress.SetChangeHiddenObjectViewAction(ChangeHiddenObjectViewAction);
-            _heatmapRecorder.SetRecorder(GetRecorder());
-            _heatmapRecorder.SwitchRecording(true);
+            _recorder ??= GetRecorder();
+            _recorder.Play();
+        }
+
+        private void CompleteLevel()
+        {
+            AddCompletedLevel();
+            _recorder.Complete();
+            OpenMenu();
         }
 
 
@@ -87,8 +91,6 @@ namespace StoryInPuzzle.Infrastructure.States
             var eventName =
                 $"playerPosition";
             
-            _gameDataContainer.GameData.AddLevelSessionNumber(_levelContext.LevelIndex);
-            _saveLoadData.Save();
             var path = $"{SceneManager.GetActiveScene().name}/{_gameDataContainer.GameData.PlayerData.NickName}_{_gameDataContainer.GameData.GetLevelSessionNumber(_levelContext.LevelIndex)}.json";
             var localPath = $"Assets/TestHeatmap/{path}";
             const float recordInterval = 0.02f;
@@ -96,6 +98,12 @@ namespace StoryInPuzzle.Infrastructure.States
             return RecorderFactory.Instance.GetFirebaseRecorder(new RecordeSettingContainer(
                 eventName, recordInterval,
                 () => _levelContext.PlayerComponent.transform.position + offset), localPath, path);
+        }
+
+        private void AddCompletedLevel()
+        {
+            _gameDataContainer.GameData.AddLevelSessionNumber(_levelContext.LevelIndex);
+            _saveLoadData.Save();
         }
 
 
@@ -127,18 +135,21 @@ namespace StoryInPuzzle.Infrastructure.States
 
         private void OpenHelp()
         {
+            _recorder.Pause();
             _stateMachine.Enter<HelpGameState>();
         }
 
         private void OpenTask()
         {
+            _recorder.Pause();
             _stateMachine.Enter<ShowTaskState, int>(_levelIndex);
         }
 
         private async void OpenMenu()
         {
             _curtain.Show();
-            await _heatmapRecorder.SwitchRecording(false);
+            _recorder.Break();
+            _recorder = null;
             await _sceneLoader.LoadScene(StartSceneKey);
             _curtain.Hide();
             _stateMachine.Enter<SelectLevelsState>();
