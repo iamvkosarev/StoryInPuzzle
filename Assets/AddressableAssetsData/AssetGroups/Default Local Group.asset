@@ -42,7 +42,7 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: 20ab1d34e4a009247a0b82eef657a392
-    m_Address: Level Task Screen 0
+    m_Address: LevelTaskScreen
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: ec91211b1d3dc7649a8c644b335aa027

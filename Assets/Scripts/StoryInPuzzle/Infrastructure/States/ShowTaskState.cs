@@ -20,7 +20,6 @@ namespace StoryInPuzzle.Infrastructure.States
         }
         public async void Enter(int data)
         {
-            _levelTaskScreenProvider.SetTaskScreenIndex(data);
             _screen = await _levelTaskScreenProvider.Load();
             _screen.CloseButton.onClick.AddListener(CloseTaskScreen);
             LoadHiddenObjectToFind();

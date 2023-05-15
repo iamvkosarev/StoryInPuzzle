@@ -2,7 +2,15 @@ using UnityEngine;
 
 namespace Core.Common
 {
-    public class PlayerComponent : MonoBehaviour
+    public interface IPlayerComponent
+    {
+        Rigidbody Rigidbody { get; }
+        Transform Transform { get; }
+        CapsuleCollider CapsuleCollider { get; }
+        Camera Camera { get; }
+    }
+
+    public class PlayerComponent : MonoBehaviour, IPlayerComponent
     {
         [SerializeField] private Camera camera;
         [SerializeField] private Rigidbody rigidbody;
@@ -10,6 +18,7 @@ namespace Core.Common
 
         public CapsuleCollider CapsuleCollider => capsuleCollider;
         public Rigidbody Rigidbody => rigidbody;
+        public Transform Transform => transform;
         public Camera Camera => camera;
     }
 }

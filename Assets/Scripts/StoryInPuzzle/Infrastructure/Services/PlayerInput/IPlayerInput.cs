@@ -7,5 +7,7 @@ namespace StoryInPuzzle.Infrastructure.Services.PlayerInput
         float Vertical { get;}
         float MouseY { get;}
         float MouseX { get;}
+        bool GetKeySitDown { get;}
+        bool GetKeySitUp { get;}
     }
 }

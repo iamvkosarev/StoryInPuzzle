@@ -4,15 +4,16 @@ using UnityEngine;
 
 namespace StoryInPuzzle.PlayerMovement
 {
-    public class PlayerRotator : MonoBehaviour, IPlayerInputUser
+    public class PlayerRotator : MonoBehaviour, IPlayerMovement
     {
-        private static PlayerComponent playerComponent => SavingDataProvider.PlayerComponent;
-        private IPlayerInput _playerInput;
         [SerializeField] private float xSensitivity = 3f;
         [SerializeField] private float ySensitivity = 3f;
+        private IPlayerComponent _playerComponent;
+        private IPlayerInput _playerInput;
 
-        public void Init(IPlayerInput playerInput)
+        void IPlayerMovement.Init(IPlayerComponent playerComponent, IPlayerInput playerInput)
         {
+            _playerComponent = playerComponent;
             _playerInput = playerInput;
         }
 
@@ -20,10 +21,10 @@ namespace StoryInPuzzle.PlayerMovement
         {
             if (_playerInput != null)
             {
-                playerComponent.Rigidbody.MoveRotation(playerComponent.Rigidbody.rotation *
-                                                       Quaternion.Euler(new Vector3(0,
-                                                           _playerInput.MouseX * xSensitivity, 0)));
-                playerComponent.Camera.transform.eulerAngles -= new Vector3(
+                _playerComponent.Rigidbody.MoveRotation(_playerComponent.Rigidbody.rotation *
+                                                        Quaternion.Euler(new Vector3(0,
+                                                            _playerInput.MouseX * xSensitivity, 0)));
+                _playerComponent.Camera.transform.eulerAngles -= new Vector3(
                     _playerInput.MouseY * ySensitivity, 0f, 0f);
             }
         }

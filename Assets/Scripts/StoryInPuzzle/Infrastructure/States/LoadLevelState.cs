@@ -1,3 +1,4 @@
+using System;
 using Core.Common;
 using StoryInPuzzle.FiddingObjects;
 using StoryInPuzzle.Infrastructure.Services.Config;
@@ -48,10 +49,12 @@ namespace StoryInPuzzle.Infrastructure.States
         private void SetUpScene()
         {
             var monoBehaviours = GameObject.FindObjectsOfType<MonoBehaviour>();
+            var player = GameObject.FindObjectOfType<PlayerComponent>();
+            if (player == null) throw new Exception("There is no player on scene");
             foreach (var monoBehaviour in monoBehaviours)
             {
-                if(monoBehaviour.TryGetComponent(out IPlayerInputUser playerInputUser))
-                    playerInputUser.Init(_playerInput);
+                if(monoBehaviour.TryGetComponent(out IPlayerMovement playerInputUser))
+                    playerInputUser.Init(player, _playerInput);
                 if(monoBehaviour.TryGetComponent(out IObjectHunter objectHunter))
                     objectHunter.SetLevelProgress(_levelProgress);
             }

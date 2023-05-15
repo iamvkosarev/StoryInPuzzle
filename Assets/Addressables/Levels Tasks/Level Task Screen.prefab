@@ -640,7 +640,7 @@ GameObject:
   - component: {fileID: 5069004743420486339}
   - component: {fileID: 2202236161644242370}
   m_Layer: 5
-  m_Name: Level Task Screen 0
+  m_Name: Level Task Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

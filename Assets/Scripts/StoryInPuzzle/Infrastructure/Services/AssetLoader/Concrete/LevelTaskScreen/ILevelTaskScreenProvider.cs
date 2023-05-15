@@ -4,7 +4,6 @@ namespace StoryInPuzzle.Infrastructure.Services.AssetLoader.Concrete.LevelTaskSc
 {
     public interface ILevelTaskScreenProvider : IService
     {
-        void SetTaskScreenIndex(int index);
         Task<LevelTaskScreen> Load();
         Task Unload();
     }

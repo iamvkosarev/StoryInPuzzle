@@ -4,10 +4,8 @@ using UnityEngine;
 
 namespace StoryInPuzzle.PlayerMovement
 {
-    public class PlayerMover : MonoBehaviour, IPlayerInputUser
+    public class PlayerMover : MonoBehaviour, IPlayerMovement
     {
-        private static PlayerComponent playerComponent => SavingDataProvider.PlayerComponent;
-
         [SerializeField] private float speed = 0.2f;
 
         [SerializeField] private float speedUpValue = 2f;
@@ -15,6 +13,7 @@ namespace StoryInPuzzle.PlayerMovement
         [SerializeField] private LayerMask playerFilter;
 
         private IPlayerInput _playerInput;
+        private IPlayerComponent _playerComponent;
 
 
         private bool hIncreaseMode;
@@ -23,8 +22,9 @@ namespace StoryInPuzzle.PlayerMovement
         private float vAxisValue;
         private bool speedUp;
 
-        public void Init(IPlayerInput playerInput)
+        void IPlayerMovement.Init(IPlayerComponent playerComponent, IPlayerInput playerInput)
         {
+            _playerComponent = playerComponent;
             _playerInput = playerInput;
         }
 
@@ -37,19 +37,19 @@ namespace StoryInPuzzle.PlayerMovement
         {
             if (_playerInput != null)
             {
-                var vAddingVector = GetAddingVector(_playerInput.Horizontal, playerComponent.transform.right,
+                var vAddingVector = GetAddingVector(_playerInput.Horizontal, _playerComponent.Transform.right,
                     ref hAxisValue,
                     ref hIncreaseMode);
-                var hAddingVector = GetAddingVector(_playerInput.Vertical, playerComponent.transform.forward,
+                var hAddingVector = GetAddingVector(_playerInput.Vertical, _playerComponent.Transform.forward,
                     ref vAxisValue,
                     ref vIncreaseMode);
-                playerComponent.Rigidbody.MovePosition(playerComponent.Rigidbody.position +
+                _playerComponent.Rigidbody.MovePosition(_playerComponent.Rigidbody.position +
                                                        (vAddingVector + hAddingVector).normalized *
                                                        (speed * (!speedUp ? 1f : speedUpValue) * Time.deltaTime));
             }
 
-            playerComponent.Rigidbody.position = new Vector3(playerComponent.Rigidbody.position.x, HeightPos(),
-                playerComponent.Rigidbody.position.z);
+            _playerComponent.Rigidbody.position = new Vector3(_playerComponent.Rigidbody.position.x, HeightPos(),
+                _playerComponent.Rigidbody.position.z);
         }
 
         private void CheckSpeedUp()
@@ -66,10 +66,10 @@ namespace StoryInPuzzle.PlayerMovement
         private float HeightPos()
 
         {
-            var halfOfHeight = (playerComponent.transform.localScale.y * playerComponent.CapsuleCollider.height) / 2f;
-            var startPoint = playerComponent.transform.position;
+            var halfOfHeight = (_playerComponent.Transform.localScale.y * _playerComponent.CapsuleCollider.height) / 2f;
+            var startPoint = _playerComponent.Transform.position;
             Physics.Raycast(new Ray(startPoint,
-                -playerComponent.transform.up), out var hit, 100f, playerFilter);
+                -_playerComponent.Transform.up), out var hit, 100f, playerFilter);
             return hit.point.y + halfOfHeight;
         }
 
@@ -83,5 +83,6 @@ namespace StoryInPuzzle.PlayerMovement
                     vector * (axisValue * speed);
             return Vector3.zero;
         }
+
     }
 }
