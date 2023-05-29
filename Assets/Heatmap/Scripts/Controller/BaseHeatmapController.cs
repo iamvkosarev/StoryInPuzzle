@@ -61,13 +61,14 @@ namespace Heatmap.Controller
             particleSystemIsInitialized = true;
             settings.IsParticlesInitialize = particleSystemIsInitialized;
             stopwatch.Stop();
-            Debug.Log("Создание сетки из частиц - скорость работы " + stopwatch.ElapsedMilliseconds + " мс");
+            Debug.Log("Создание зоны из частиц - скорость работы " + stopwatch.ElapsedMilliseconds + " мс");
         }
 
         [Button, DisableIf("IsNotParticlesInitialize"), HorizontalGroup("Initialize")]
         public void DestroyParticlesSystem()
         {
             HeatmapVisualisation.DestroyParticleSystem();
+            heatmapVisualisation = null;
             particleSystemIsInitialized = false;
             settings.IsParticlesInitialize = particleSystemIsInitialized;
         }

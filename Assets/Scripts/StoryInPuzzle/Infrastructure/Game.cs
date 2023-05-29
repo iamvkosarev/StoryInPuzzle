@@ -44,7 +44,6 @@ namespace StoryInPuzzle.Infrastructure
             serviceContainer.RegisterServiceInterfacesFromInstance(StateMachine);
 
             StateMachine.RegisterState<BootstrapState>();
-            StateMachine.RegisterState<CheckLoginState>();
             StateMachine.RegisterState<LoginState>();
             StateMachine.RegisterState<SelectLevelsState>();
             StateMachine.RegisterState<LoadLevelState>();

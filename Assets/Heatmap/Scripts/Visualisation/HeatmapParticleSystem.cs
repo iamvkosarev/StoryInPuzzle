@@ -15,7 +15,7 @@ namespace Heatmap.Visualisation
         private Vector3Int particleGridSize;
         private Particle[,,] particlesArray;
         private Settings settings;
-        
+
         public Vector3Int ParticleGridSize => particleGridSize;
 
         /// <param name="particleSystemBox">Object that limiting particles area and contains it</param>
@@ -57,12 +57,13 @@ namespace Heatmap.Visualisation
 
             return newParticleSystem;
         }
+
         public void CreateParticleArray(Settings settings)
         {
             particleGridSize = CalculateParticleGridSize();
 
             particlesArray = new Particle[particleGridSize.x, particleGridSize.y, particleGridSize.z];
-
+            Debug.Log(particleGridSize);
             for (var x = 0; x < particleGridSize.x; x++)
             {
                 for (var y = 0; y < particleGridSize.y; y++)
@@ -100,11 +101,13 @@ namespace Heatmap.Visualisation
                         {
                             continue;
                         }
+
                         var particleColor = settings.Gradient.Evaluate(particleColorValues[x, y, z]);
                         if (!(particleColor.a > 0.001f))
                         {
                             continue;
                         }
+
                         particlesArray[x, y, z].startColor = particleColor;
                         particleList.Add(particlesArray[x, y, z]);
                     }
@@ -126,7 +129,8 @@ namespace Heatmap.Visualisation
 
         public Vector3Int ConvertGlobalPositionToParticleGrid(Vector3 globalPosition)
         {
-            var convertedPosition = Vector3Int.RoundToInt((globalPosition - particleSystemBounds.min) / settings.ParticleDistance);
+            var convertedPosition =
+                Vector3Int.RoundToInt((globalPosition - particleSystemBounds.min) / settings.ParticleDistance);
 
             return convertedPosition;
         }
@@ -138,6 +142,5 @@ namespace Heatmap.Visualisation
 
             return particleGridSize;
         }
-
     }
 }

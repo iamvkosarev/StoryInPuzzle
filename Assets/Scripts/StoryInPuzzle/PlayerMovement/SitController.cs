@@ -10,7 +10,7 @@ namespace StoryInPuzzle.PlayerMovement
 
         private IPlayerComponent _playerComponent;
         private IPlayerInput _playerInput;
-        private float standHeight;
+        private float _standHeight;
 
         private bool sit;
         private bool tryStand;
@@ -19,15 +19,12 @@ namespace StoryInPuzzle.PlayerMovement
         {
             _playerComponent = playerComponent;
             _playerInput = playerInput;
-        }
-
-        private void Start()
-        {
-            standHeight = _playerComponent.Transform.localScale.y;
+            _standHeight = _playerComponent.Transform.localScale.y;
         }
 
         private void Update()
         {
+            if (_playerComponent == null) return;
             if (_playerInput.GetKeySitDown)
             {
                 if (!sit)
@@ -50,7 +47,7 @@ namespace StoryInPuzzle.PlayerMovement
             {
                 tryStand = false;
                 sit = false;
-                _playerComponent.Transform.localScale = new Vector3(1f, standHeight, 1f);
+                _playerComponent.Transform.localScale = new Vector3(1f, _standHeight, 1f);
             }
         }
 

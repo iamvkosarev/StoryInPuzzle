@@ -44,7 +44,7 @@ namespace Heatmap.Visualisation
 
         public void InitializeParticleArray()
         {
-            heatmapParticleSystem.CreateParticleArray(settings);
+             heatmapParticleSystem.CreateParticleArray(settings);
 
             ResetParticlesColor();
             UpdateParticlesInParticleSystem();

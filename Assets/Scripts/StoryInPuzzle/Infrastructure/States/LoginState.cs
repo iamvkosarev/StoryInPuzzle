@@ -26,6 +26,11 @@ namespace StoryInPuzzle.Infrastructure.States
 
         public async void Enter()
         {
+            if (IsPlayerSelectedNickName())
+            {
+                _gameStateMachine.Enter<SelectLevelsState>();
+                return;
+            }
             _curtain.Show();
             _screen = await _loginScreenProvider.Load();
             _curtain.Hide();
@@ -35,6 +40,7 @@ namespace StoryInPuzzle.Infrastructure.States
             _screen.ErrorMessage.gameObject.SetActive(false);
             _screen.SendButton.onClick.AddListener(TrySaveLogin);
         }
+        private bool IsPlayerSelectedNickName() => !_gameDataContainer.GameData.PlayerData.NickName.IsNullOrWhitespace();
 
         private void SetNicknameIfNotNull()
         {
@@ -104,7 +110,7 @@ namespace StoryInPuzzle.Infrastructure.States
 
         public void Exit()
         {
-            _screen.SendButton.onClick.RemoveListener(TrySaveLogin);
+            if (_screen != null) _screen.SendButton.onClick.RemoveListener(TrySaveLogin);
             _loginScreenProvider.Unload();
         }
     }

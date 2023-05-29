@@ -26,7 +26,7 @@ namespace Heatmap.Readers
             var storage = FirebaseStorage.DefaultInstance;
             var storageRef = storage.RootReference;
             var jsonRef = storageRef.Child(_path);
-            const long maxAllowedSize = 1 * 1024 * 1024;
+            const long maxAllowedSize = 100 * 1024 * 1024;
             var isLoaded = false;
             var result = false;
             jsonRef.GetBytesAsync(maxAllowedSize).ContinueWithOnMainThread(task =>

@@ -16,7 +16,7 @@ namespace StoryInPuzzle.Infrastructure.States
         public void Enter()
         {
             _saveLoadData.Load();
-            _gameStateMachine.Enter<CheckLoginState>();
+            _gameStateMachine.Enter<LoginState>();
         }
 
         public void Exit()
